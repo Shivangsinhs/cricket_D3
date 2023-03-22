@@ -1,0 +1,1069 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20224.22.1117.1841                               -->
+<workbook original-version='18.1' source-build='2022.4.0 (20224.22.1117.1841)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='IPL Matches 2008-2020' inline='true' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='IPL Matches 2008-2020' name='textscan.0trxz3f19wwre51bqhpbs1ap3lcd'>
+            <connection class='textscan' directory='C:/Users/josef/OneDrive - University of St Andrews/00 Resources/CS5044/05 P2/firstCode/data' filename='IPL Matches 2008-2020.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.0trxz3f19wwre51bqhpbs1ap3lcd' name='IPL Matches 2008-2020.csv' table='[IPL Matches 2008-2020#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype='integer' name='id' ordinal='0' />
+            <column datatype='string' name='city' ordinal='1' />
+            <column datatype='date' name='date' ordinal='2' />
+            <column datatype='string' name='player_of_match' ordinal='3' />
+            <column datatype='string' name='venue' ordinal='4' />
+            <column datatype='integer' name='neutral_venue' ordinal='5' />
+            <column datatype='string' name='team1' ordinal='6' />
+            <column datatype='string' name='team2' ordinal='7' />
+            <column datatype='string' name='toss_winner' ordinal='8' />
+            <column datatype='string' name='toss_decision' ordinal='9' />
+            <column datatype='string' name='winner' ordinal='10' />
+            <column datatype='string' name='result' ordinal='11' />
+            <column datatype='integer' name='result_margin' ordinal='12' />
+            <column datatype='string' name='eliminator' ordinal='13' />
+            <column datatype='string' name='method' ordinal='14' />
+            <column datatype='string' name='umpire1' ordinal='15' />
+            <column datatype='string' name='umpire2' ordinal='16' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.0trxz3f19wwre51bqhpbs1ap3lcd' name='IPL Matches 2008-2020.csv' table='[IPL Matches 2008-2020#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype='integer' name='id' ordinal='0' />
+            <column datatype='string' name='city' ordinal='1' />
+            <column datatype='date' name='date' ordinal='2' />
+            <column datatype='string' name='player_of_match' ordinal='3' />
+            <column datatype='string' name='venue' ordinal='4' />
+            <column datatype='integer' name='neutral_venue' ordinal='5' />
+            <column datatype='string' name='team1' ordinal='6' />
+            <column datatype='string' name='team2' ordinal='7' />
+            <column datatype='string' name='toss_winner' ordinal='8' />
+            <column datatype='string' name='toss_decision' ordinal='9' />
+            <column datatype='string' name='winner' ordinal='10' />
+            <column datatype='string' name='result' ordinal='11' />
+            <column datatype='integer' name='result_margin' ordinal='12' />
+            <column datatype='string' name='eliminator' ordinal='13' />
+            <column datatype='string' name='method' ordinal='14' />
+            <column datatype='string' name='umpire1' ordinal='15' />
+            <column datatype='string' name='umpire2' ordinal='16' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;£&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>player_of_match</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[player_of_match]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>player_of_match</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>venue</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[venue]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>venue</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neutral_venue</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[neutral_venue]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>neutral_venue</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team1]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>team1</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team2</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team2]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>team2</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>toss_winner</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[toss_winner]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>toss_winner</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>toss_decision</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[toss_decision]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>toss_decision</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>winner</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[winner]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>winner</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>result</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[result]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>result</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>result_margin</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[result_margin]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>result_margin</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>eliminator</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[eliminator]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>eliminator</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>method</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[method]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>method</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>umpire1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[umpire1]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>umpire1</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>umpire2</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[umpire2]</local-name>
+            <parent-name>[IPL Matches 2008-2020.csv]</parent-name>
+            <remote-alias>umpire2</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Looser' datatype='string' name='[Calculation_1814387706847416320]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [winner] == [team1]&#13;&#10;THEN [team2]&#13;&#10;ELSE [team1]&#13;&#10;END' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='IPL Matches 2008-2020.csv' datatype='table' name='[__tableau_internal_object_id__].[IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126]' role='measure' type='quantitative' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Eliminator' datatype='string' name='[eliminator]' role='dimension' type='nominal' />
+      <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column caption='Method' datatype='string' name='[method]' role='dimension' type='nominal' />
+      <column caption='Neutral Venue' datatype='integer' name='[neutral_venue]' role='measure' type='quantitative' />
+      <column caption='Player Of Match' datatype='string' name='[player_of_match]' role='dimension' type='nominal' />
+      <column caption='Result' datatype='string' name='[result]' role='dimension' type='nominal' />
+      <column caption='Result Margin' datatype='integer' name='[result_margin]' role='measure' type='quantitative' />
+      <column caption='Team1' datatype='string' name='[team1]' role='dimension' type='nominal' />
+      <column caption='Team2' datatype='string' name='[team2]' role='dimension' type='nominal' />
+      <column caption='Toss Decision' datatype='string' name='[toss_decision]' role='dimension' type='nominal' />
+      <column caption='Toss Winner' datatype='string' name='[toss_winner]' role='dimension' type='nominal' />
+      <column caption='Umpire1' datatype='string' name='[umpire1]' role='dimension' type='nominal' />
+      <column caption='Umpire2' datatype='string' name='[umpire2]' role='dimension' type='nominal' />
+      <column caption='Venue' datatype='string' name='[venue]' role='dimension' type='nominal' />
+      <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+      <column-instance column='[winner]' derivation='None' name='[none:winner:nk]' pivot='key' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:winner:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Mumbai Indians&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Chennai Super Kings&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Gujarat Lions&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Rising Pune Supergiant&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;NA&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Kings XI Punjab&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Deccan Chargers&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Kochi Tuskers Kerala&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Rising Pune Supergiants&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Royal Challengers Bangalore&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Pune Warriors&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Kolkata Knight Riders&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Delhi Capitals&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Sunrisers Hyderabad&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Rajasthan Royals&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Delhi Daredevils&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Austria&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='id' />
+        <field-sort-custom-order field='city' />
+        <field-sort-custom-order field='date' />
+        <field-sort-custom-order field='player_of_match' />
+        <field-sort-custom-order field='venue' />
+        <field-sort-custom-order field='neutral_venue' />
+        <field-sort-custom-order field='team1' />
+        <field-sort-custom-order field='team2' />
+        <field-sort-custom-order field='toss_winner' />
+        <field-sort-custom-order field='toss_decision' />
+        <field-sort-custom-order field='winner' />
+        <field-sort-custom-order field='Calculation_1814387706847416320' />
+        <field-sort-custom-order field='result' />
+        <field-sort-custom-order field='result_margin' />
+        <field-sort-custom-order field='eliminator' />
+        <field-sort-custom-order field='method' />
+        <field-sort-custom-order field='umpire1' />
+        <field-sort-custom-order field='umpire2' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='IPL Matches 2008-2020.csv' id='IPL Matches 2008-2020.csv_2AB03116F65E4C258107F092A585B126'>
+            <properties context=''>
+              <relation connection='textscan.0trxz3f19wwre51bqhpbs1ap3lcd' name='IPL Matches 2008-2020.csv' table='[IPL Matches 2008-2020#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+                  <column datatype='integer' name='id' ordinal='0' />
+                  <column datatype='string' name='city' ordinal='1' />
+                  <column datatype='date' name='date' ordinal='2' />
+                  <column datatype='string' name='player_of_match' ordinal='3' />
+                  <column datatype='string' name='venue' ordinal='4' />
+                  <column datatype='integer' name='neutral_venue' ordinal='5' />
+                  <column datatype='string' name='team1' ordinal='6' />
+                  <column datatype='string' name='team2' ordinal='7' />
+                  <column datatype='string' name='toss_winner' ordinal='8' />
+                  <column datatype='string' name='toss_decision' ordinal='9' />
+                  <column datatype='string' name='winner' ordinal='10' />
+                  <column datatype='string' name='result' ordinal='11' />
+                  <column datatype='integer' name='result_margin' ordinal='12' />
+                  <column datatype='string' name='eliminator' ordinal='13' />
+                  <column datatype='string' name='method' ordinal='14' />
+                  <column datatype='string' name='umpire1' ordinal='15' />
+                  <column datatype='string' name='umpire2' ordinal='16' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Cities'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[winner]' derivation='Count' name='[cnt:winner:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2009</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:city:nk]</cols>
+      </table>
+      <simple-id uuid='{189F36FF-7DEC-4E32-9B96-5F43E283034B}' />
+    </worksheet>
+    <worksheet name='Sheet 1 (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column-instance column='[winner]' derivation='Count' name='[cnt:winner:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[team2]' derivation='None' name='[none:team2:nk]' pivot='key' type='nominal' />
+            <column caption='Team2' datatype='string' name='[team2]' role='dimension' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2020</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:team2:nk]</cols>
+      </table>
+      <simple-id uuid='{4EF39E23-FA52-45E0-8A7A-94E3EA12DBD5}' />
+    </worksheet>
+    <worksheet name='Timeline Matches'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column-instance column='[winner]' derivation='Count' name='[cnt:winner:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[winner]' derivation='None' name='[none:winner:nk]' pivot='key' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2020</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</cols>
+      </table>
+      <simple-id uuid='{BC5E3203-50EF-4170-A87D-0998983442BB}' />
+    </worksheet>
+    <worksheet name='Timeline Matches (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column-instance column='[id]' derivation='CountD' name='[ctd:id:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2020</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[ctd:id:qk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</cols>
+      </table>
+      <simple-id uuid='{732720BD-4E6F-46FA-8D8B-66D268D70A34}' />
+    </worksheet>
+    <worksheet name='Winners'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column-instance column='[winner]' derivation='Count' name='[cnt:winner:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[winner]' derivation='None' name='[none:winner:nk]' pivot='key' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2009</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]</cols>
+      </table>
+      <simple-id uuid='{3EADC71A-6DA4-4AF3-A129-4E724353383D}' />
+    </worksheet>
+    <worksheet name='Won against'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column caption='Looser' datatype='string' name='[Calculation_1814387706847416320]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [winner] == [team1]&#13;&#10;THEN [team2]&#13;&#10;ELSE [team1]&#13;&#10;END' />
+            </column>
+            <column-instance column='[winner]' derivation='Count' name='[cnt:winner:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1814387706847416320]' derivation='None' name='[none:Calculation_1814387706847416320:nk]' pivot='key' type='nominal' />
+            <column-instance column='[winner]' derivation='None' name='[none:winner:nk]' pivot='key' type='nominal' />
+            <column caption='Team1' datatype='string' name='[team1]' role='dimension' type='nominal' />
+            <column caption='Team2' datatype='string' name='[team2]' role='dimension' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2008</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <size column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]' />
+              <text column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.4172928333282471' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]</cols>
+      </table>
+      <simple-id uuid='{98CE7433-25C9-4D3F-A0E1-FA63DAE1D274}' />
+    </worksheet>
+    <worksheet name='Won against (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column caption='Looser' datatype='string' name='[Calculation_1814387706847416320]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [winner] == [team1]&#13;&#10;THEN [team2]&#13;&#10;ELSE [team1]&#13;&#10;END' />
+            </column>
+            <column-instance column='[Calculation_1814387706847416320]' derivation='Count' name='[cnt:Calculation_1814387706847416320:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[winner]' derivation='Count' name='[cnt:winner:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[winner]' derivation='None' name='[none:winner:nk]' pivot='key' type='nominal' />
+            <column caption='Team1' datatype='string' name='[team1]' role='dimension' type='nominal' />
+            <column caption='Team2' datatype='string' name='[team2]' role='dimension' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2008</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.4832596778869629' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.4832596778869629' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:Calculation_1814387706847416320:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.4832596778869629' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk] + [federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:Calculation_1814387706847416320:qk])</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]</cols>
+      </table>
+      <simple-id uuid='{70CF2862-5BF3-46E9-95B3-E7DBCF98A77E}' />
+    </worksheet>
+    <worksheet name='Won at'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[winner]' derivation='Count' name='[cnt:winner:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[winner]' derivation='None' name='[none:winner:nk]' pivot='key' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2020</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <size column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.4832596778869629' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:city:nk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]</cols>
+      </table>
+      <simple-id uuid='{1A0DB08A-424C-43BC-A94B-5A122FEE4161}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Timeline Matches'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4CBB3253-8E55-4A61-959D-08EB8E004DA8}' />
+    </window>
+    <window class='worksheet' name='Timeline Matches (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E5F64A3F-1767-4388-B2D6-C2A1C2104BC6}' />
+    </window>
+    <window class='worksheet' name='Winners'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{9E16BC3C-AEE0-4F20-A83F-DF92FAEA77E0}' />
+    </window>
+    <window class='worksheet' name='Cities'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{03C5411D-569C-4331-9E14-9C1730F57AF2}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Won against'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E7ADDB51-BCCC-4329-A99F-1699246F96BB}' />
+    </window>
+    <window class='worksheet' name='Won at'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8D0DC51F-DDAF-48DC-9DCA-96B69787C6CA}' />
+    </window>
+    <window class='worksheet' name='Won against (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4D209AEF-4733-4037-9095-31CAD19CA197}' />
+    </window>
+    <window class='worksheet' name='Sheet 1 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{FAF2DD89-2209-493A-B893-94584EE7E660}' />
+    </window>
+  </windows>
+</workbook>
