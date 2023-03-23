@@ -1,0 +1,106 @@
+/* Styling for page sections */
+html,
+body {
+  margin: auto;
+}
+
+* {
+  font-family: helvetica, sans-serif;
+  box-sizing: border-box;
+  color: rgb(48, 47, 47);
+}
+
+/* SD302: Styling for headers */
+h1 {
+    /*text-align: center;*/
+    font-size: 25px;
+    font-weight: none;
+    color: rgb(48, 47, 47);
+    right: 0;
+  }
+
+body {
+    background-color: #9bc2d5;
+  }
+
+#wrapper {
+  width: 85%;
+  margin-bottom: 50px;
+  margin: auto;
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #7a98a7;
+    text-align: center;
+    color: #050606;
+    padding: 10px;
+    font-weight: none;
+    margin-top: 100px;
+  }
+
+/* SD302: TAB STYLING */
+.tab-container {
+    /* Styling for tabs */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #7a98a7;
+    /*border: 3px solid #f4f1e9;
+    border-radius: 5px 5px 0px 0px;*/
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+    /*margin-top: 30px;*/
+  }
+  
+  .tabHead {
+    /* centre tab buttons */
+    margin-right: auto;
+    margin-left: 10%;
+  }
+
+.tab {
+    /* centre tab buttons */
+    display: flex;
+    justify-content: center;
+  }
+  
+
+
+.tab button {
+    /* Styling for buttons to move between tabs*/
+    background-color: inherit;
+    color: #f4f1e9;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 30px;
+    transition: 0.3s;
+  }
+  
+.tab button:hover {
+    /* change css when cursor hovers over */
+    background-color: #527b90;
+    color: #f4f1e9;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+  
+.tab button.active {
+    /* change css when cursor hovers over */
+    background-color: #49bbf5;
+    color: #f4f1e9;
+    font-weight: bold;
+  }
