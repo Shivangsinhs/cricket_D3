@@ -7,14 +7,20 @@
 
 
     let nestedData = d3.group(myData, d => d.City);
-    console.log(nestedData);
+    console.log("nested", nestedData);
     console.log(nestedData.get("Bangalore"));
     
     let rolledData = d3.rollup(myData, v => v.length, d => d.City);
     console.log("Rolled Data", rolledData);
     //console.log(rolledData.get("Bangalore"));
-    console.log(rolledData.size)
+    console.log(rolledData.keys())
+    console.log(typeof rolledData)
 
+    /*
+    var cityArray = Array.from(rolledData.keys());
+    console.log(cityArray);
+    */
+   
     let rolleExtent = d3.extent(rolledData, function(d) {
         return parseFloat(d[1])
     });
@@ -26,32 +32,35 @@
 
     console.log("Width Extent", rolleExtentW);
 
+   
 
-    
-
-    const margin = 70;	
+    const margin = 100;	
     const width = 700;	
     const height = 400;	
+    const barWidth = 20;
 
-    //let minHeight = 30;
-    //let maxHeight = 400;
 
+    // scaling y axis (heigth) for bars and axis
     let y_scale = d3.scaleLinear()
         .range([height, margin])
         .domain([0, rolleExtent[1]]);
 
+    // scaling y axis (width) for bars 
     let x_scale = d3.scaleLinear()
-        .range([margin, width - margin])
-        .domain(rolleExtentW)
-
-    let x_axis = d3.axisBottom(x_scale)
-        .tickFormat(function(d) {
-            return rolledData[1];
-        });
+        .range([margin, width])
+        .domain(rolleExtentW);
+    
+    // scaling X axis (width) for axis
+    let x_a_scale = d3.scalePoint()
+        .range([margin + (barWidth / 2), width + (barWidth / 2)]) // half of width of bars 
+        .domain(rolledData.keys());
 
     let y_axis = d3.axisLeft(y_scale)
 
-    const bar_svg = d3.select("div")
+    let x_axis = d3.axisBottom(x_a_scale);
+
+    // create svg as child of DOM div selected by id (#)
+    const bar_svg = d3.select("#div1")
         .append("svg")
             .attr("width", width + margin)
             .attr("height", height + margin)
@@ -60,8 +69,13 @@
     bar_svg
     .append("g")
         .attr("class", "x_axis")
-        .attr("transform", `translate(0, ${height})`) //translate(0, ${height - margin}
-        .call(x_axis);
+        .attr("transform", `translate(0, ${height})`) 
+        .call(x_axis)
+        .selectAll("text") // set text of ticks
+            .attr("transform", "rotate(-90)")
+            .attr("dx", "-.8em")
+            .attr("dy", "-.6em")
+            .attr("text-anchor", "end");
 
     // set Y axis
     bar_svg
@@ -76,7 +90,7 @@
         .text("Cities")
         .style("fill", "black")
         .attr("x", (width + margin) / 2)
-        .attr("y", margin - 10)
+        .attr("y", margin - 15)
         .attr("class", "axis-title")
 
     // set title of y axis
@@ -87,12 +101,14 @@
         .attr("transform", `rotate(-90, 0, ${margin - 20}) translate(${-margin - 30 }, 0)`)
         .attr("class", "axis-title")
 
+    // create bars 
     bar_svg
         .selectAll("rect")
         .data(rolledData)
         .enter()
         .append("rect")
-        .attr("width", 20) // horizontal
+        .attr("class", "bars")
+        .attr("width", barWidth) // horizontal
         .attr("height", function(d) { // vertical
             console.log(y_scale(d[1]), d[1])
             return (height - y_scale(d[1]))
@@ -103,6 +119,62 @@
         })
         .attr("y", function(d) { // vertical
             return y_scale(d[1])
+        })
+        .on("mouseenter", function(event, d) {
+
+            d3.select(this)
+                .attr("class", "bar-mouse-in");
+
+            var tooltip = bar_svg
+                .append("g")
+                .attr("class", "tooltip")
+                .style("pointer-events", "none");
+
+            var textN = tooltip
+                .append("text")
+                .attr("class", "tooltip-text")
+                .attr("x", event.x)
+                .attr("y", event.y)
+                .text("Matches played in " + d[0] + ": " + d[1])
+                .attr("fill", "black")
+                .attr("font-size", "14px");
+
+            var boundBox = textN.node().getBBox();
+            tooltip
+                .insert("rect", "text")
+                .attr("class", "rect-tooltip")
+                .attr("x", boundBox.x - 5)
+                .attr("y", boundBox.y - 5)
+                .attr("width", boundBox.width + 10)
+                .attr("height", boundBox.height + 10)
+                .attr("rx", 5)
+                .attr("ry", 5);
+            /*
+            var svgRect = bar_svg.node().getBoundingClientRect();
+            var tooltipRect = tooltip.node().getBoundingClientRect();
+            var toolTX = event.clientX - svgRect.x + 10;
+            var toolTY = event.clientY - svgRect.y + 10;
+
+            if (toolTX + tooltipRect.width > svgRect.width) {
+                toolTX = event.clientX - svgRect.x -tooltipRect.width -20;
+            }
+
+            
+            if (toolTY + tooltipRect.height > svgRect.height) {
+                toolTY = event.clientY - svgRect.y -tooltipRect.height -20;
+            }
+
+            tooltip
+                .attr("transform", `translate(${toolTX}, ${toolTY})`);
+
+            */
+        })
+        
+        .on("mouseout", function(event, d) {
+            d3.select(this)
+                .attr("class", "bars");
+            d3.selectAll(".tooltip")
+                .remove();
         });
         
             

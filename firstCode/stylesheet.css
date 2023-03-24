@@ -13,7 +13,7 @@ div {
 	height: 100%
 }
 
-rect {
+.bars {
     fill: gold;
     stroke: black;
     stroke-width: 2px;
@@ -21,4 +21,14 @@ rect {
 
 .axis-title {
     font-size: 15px;
+}
+
+.bar-mouse-in {
+    fill: green;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.rect-tooltip {
+    fill:aquamarine
 }
