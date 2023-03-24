@@ -29,6 +29,18 @@ div {
     stroke-width: 2px;
 }
 
-.rect-tooltip {
-    fill:aquamarine
+
+.tooltip {
+    background-color: gray;
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
+
+#dropDownMenu {
+    display: flex;
+    width: auto;
+    height: auto;
+
 }

@@ -4,13 +4,85 @@
     const datapath = "data/IPL Matches 2008-2020_win_loss_small.csv"
     const myData = await d3.csv(datapath)
     console.log(myData);
+    console.log(myData[1].Date)
 
+    let rowConverter = (d) => {
+        let dateString = d.Date
+        let parseDate = d3.timeParse("%d/%m/%Y");
+        let parseYear = d3.timeFormat("%Y");
+        let date = parseDate(dateString);
+        let year = parseYear(date);
+        
+        return {
+            Date: date,
+            year: year,
+            City: d.City,
+            Eliminator: d.Eliminator, 
+            Id: d.Id, 
+            Looser: d.Looser,
+            Method: d.Method, 
+            "Neutral Venue": d["Neutral Venue"],
+            "Player Of Match": d["Player Of Match"],
+            Result: d.Result,
+            "Result Margin": d["Result Margin"],
+            Team1: d.Team1,
+            Team2: d.Team2,
+            "Toss Decision": d["Toss Decision"],
+            "Toss Winner": d["Toss Winner"],
+            Umpire1: d.Umpire1, 
+            Umpire2: d.Umpire2,
+            Venue: d.Venue,
+            Winner: d.Winner,
+        } 
+    }
+
+    console.log(rowConverter(myData[1]));
+    // cleaned data (date)
+    const myDataD = await d3.csv(datapath, rowConverter);
+
+    function initaliseTimeline(data) {
+
+        let nestedByYear = d3.group(data, d => (d.Date).getFullYear())
+            .entries(data);
+
+        let dropDownM = d3.select("#dropDownMenu");
+        dropDownM
+            .append("select")
+            .selectAll("option")
+            .data(nestedByYear)
+            .enter()
+            .append("option")
+                .attr("value", d => d[0])
+                .text(d => d[0]);
+
+        return nestedByYear;
+    }
+
+    rolledYear = initaliseTimeline(myDataD);
+    console.log("ROLLED YEAR", Array.from(rolledYear));
+
+    let dropDownM = d3.select("#dropDownMenu")
+        .on("change", function(e, d) {
+            let selectItem = d3.select(this)
+                .select("select")
+                .property("value");
+            console.log(selectItem);
+            filterTest(selectItem);
+        })
+
+    function filterTest(filter) {
+        newData = myDataD.filter(function (d) { return d.year == filter});
+        console.log("Filtered data", newData);
+    }
+
+
+    //console.log(rowConverter(myData[1]));
 
     let nestedData = d3.group(myData, d => d.City);
     console.log("nested", nestedData);
     console.log(nestedData.get("Bangalore"));
     
-    let rolledData = d3.rollup(myData, v => v.length, d => d.City);
+    let rolledData = d3.rollup(myDataD, v => v.length, d => d.City);
     console.log("Rolled Data", rolledData);
     //console.log(rolledData.get("Bangalore"));
     console.log(rolledData.keys())
@@ -110,7 +182,7 @@
         .attr("class", "bars")
         .attr("width", barWidth) // horizontal
         .attr("height", function(d) { // vertical
-            console.log(y_scale(d[1]), d[1])
+            //console.log(y_scale(d[1]), d[1])
             return (height - y_scale(d[1]))
         })
         .attr("x", function(d, i) { // horizontal
@@ -125,49 +197,13 @@
             d3.select(this)
                 .attr("class", "bar-mouse-in");
 
-            var tooltip = bar_svg
-                .append("g")
+            d3.select("body")
+                .append("div")
                 .attr("class", "tooltip")
-                .style("pointer-events", "none");
-
-            var textN = tooltip
-                .append("text")
-                .attr("class", "tooltip-text")
-                .attr("x", event.x)
-                .attr("y", event.y)
-                .text("Matches played in " + d[0] + ": " + d[1])
-                .attr("fill", "black")
-                .attr("font-size", "14px");
-
-            var boundBox = textN.node().getBBox();
-            tooltip
-                .insert("rect", "text")
-                .attr("class", "rect-tooltip")
-                .attr("x", boundBox.x - 5)
-                .attr("y", boundBox.y - 5)
-                .attr("width", boundBox.width + 10)
-                .attr("height", boundBox.height + 10)
-                .attr("rx", 5)
-                .attr("ry", 5);
-            /*
-            var svgRect = bar_svg.node().getBoundingClientRect();
-            var tooltipRect = tooltip.node().getBoundingClientRect();
-            var toolTX = event.clientX - svgRect.x + 10;
-            var toolTY = event.clientY - svgRect.y + 10;
-
-            if (toolTX + tooltipRect.width > svgRect.width) {
-                toolTX = event.clientX - svgRect.x -tooltipRect.width -20;
-            }
-
-            
-            if (toolTY + tooltipRect.height > svgRect.height) {
-                toolTY = event.clientY - svgRect.y -tooltipRect.height -20;
-            }
-
-            tooltip
-                .attr("transform", `translate(${toolTX}, ${toolTY})`);
-
-            */
+                .style("position", "absolute")
+                .html("Matches played in " + d[0] + ": " + d[1])
+                .style("left", event.pageX + "px")
+                .style("top", (event.pageY) + "px")
         })
         
         .on("mouseout", function(event, d) {
@@ -175,62 +211,7 @@
                 .attr("class", "bars");
             d3.selectAll(".tooltip")
                 .remove();
-        });
-        
-            
-
-/* 
-    bar_svg
-        .selectAll("rect")
-        .data(rolledData) // Array.from(rolledData)
-        .enter()
-        .append("rect")
-            .attr("width", 20) 
-            .attr("height", function(d) { // set the length/height of the bar
-                console.log(d[1])
-                return y_scale(d[1]);
-            })
-            .attr("x", function(d, i) { // set the x position of the bar
-                console.log(d, i, i * 50 + 50);
-                return x_scale(i); //(i * 40 + 50)
-            })
-            .attr("y", function(d) { // set the y position of the bar
-                return height - margin - y_scale(d[1]);
-            })
-            .on("mouseenter", function(event, d) {
-                d3.select(this)
-                    .style("fill", "green");
-                d3.select("svg")
-                    .append("text")
-                        .attr("class", "tooltip")
-                        .attr("x", event.x)
-                        .attr("y", event.y - 20)
-                        .text("Matches played in " + d[0] + ": " + d[1]);
-            })
-            .on("mouseout", function(event, d) {
-                d3.select(this)
-                    .style("fill", "gold")
-                d3.selectAll(".tooltip")
-                    .remove();
-            });
-
-    bar_svg
-        .selectAll("text")
-        .data(rolledData)
-        .enter()
-        .append("text")
-            .attr("x", function(d, i) {
-                return x_scale(i);
-            })
-            .attr("y", function(d) {
-                return height - 45 - y_scale(d[1]);
-            })
-            .text(function(d) {
-                return d[0];
-            })
-            */
-
-			
+        });		
 			
 
 })();
