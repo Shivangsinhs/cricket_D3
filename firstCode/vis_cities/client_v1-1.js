@@ -1,7 +1,7 @@
 
 (async () => {
 
-    const datapath = "data/IPL Matches 2008-2020_win_loss_small.csv"
+    const datapath = "../firstcode/data/IPL Matches 2008-2020_win_loss_small.csv"
     const csvData = await d3.csv(datapath)
 
     // cleaned data (date)

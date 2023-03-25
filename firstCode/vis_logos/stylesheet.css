@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+}
+
+p {
+    color: blue;
+}
+
+html,
+body,
+div {
+	width: 100%;
+	height: 100%
+}
+
+.bars {
+    fill: gold;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.axis-title {
+    font-size: 15px;
+}
+
+.bar-mouse-in {
+    fill: green;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+
+.tooltip {
+    background-color: gray;
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
+
+#dropDownMenu {
+    display: flex;
+    width: auto;
+    height: auto;
+
+}
