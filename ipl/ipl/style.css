@@ -1,0 +1,26 @@
+body {
+    font-family: "Open Sans";
+}
+
+h3{
+    display: block;
+}
+
+#main {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+text.label {
+    text-anchor: middle;
+    font-size: 11px;
+    fill: #555;
+    font-family: sans-serif;
+}
+
+.axis line,
+.axis path {
+    stroke: none;
+}
