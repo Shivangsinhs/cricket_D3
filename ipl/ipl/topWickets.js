@@ -42,6 +42,7 @@ d3.csv("ipl_data.csv").then(function(data) {
       .attr("y", function(d) { return yw(d.highest_individual_wickets); })
       .attr("height", function(d) { return height - yw(d.highest_individual_wickets); })
       .style('fill', 'steelblue');
+      
 
      topWickets.selectAll(".l")
       .data(data)

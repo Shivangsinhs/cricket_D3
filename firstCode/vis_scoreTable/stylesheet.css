@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+}
+
+
+#dropDownMenu {
+    display: flex;
+    width: auto;
+    height: auto;
+
+}
+
+#div3 {
+    position: relative;
+    z-index: 0;
+    width: 1000px;
+    height: 500px;
+}
+
+.tooltip {
+    background-color: gray;
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
+
+.axis-title {
+    font-size: 15px;
+}

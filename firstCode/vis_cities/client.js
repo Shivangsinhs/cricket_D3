@@ -4,9 +4,12 @@
     const datapath = "../data/IPL Matches 2008-2020_win_loss_small.csv"
     const csvData = await d3.csv(datapath)
 
+    console.log(csvData);
+
     // cleaned data (date)
     const myData = await d3.csv(datapath, rowConverter);
-    
+    console.log(myData);
+
     // convert dataObjects to necessary format, change date format
     function rowConverter(d) {
 

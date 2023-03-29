@@ -24,18 +24,69 @@ body {
   }
 
 #wrapper {
-  width: 85%;
+  width: 100%;
   margin-bottom: 50px;
   margin: auto;
   padding-top: 120px;
+  display: grid;
+  grid-template-areas: 
+  'intro intro intro intro'
+  'vis1 vis1 vis1 vis1'
+  'vis2 vis3 vis3 vis3'
+  'vis4 vis4 vis5 vis5'
+  'vis4 vis4 vis5 vis5';
+  grid-gap: 10px;
+  
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;*/
+}
+
+#intro {
+  background-color: rgb(84, 129, 129);
+  grid-area: intro;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
+ }
+
+ #vis1 {
+  background-color: aqua;
+  grid-area: vis1;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+ }
+
+ #vis2 {
+  background-color: rgb(21, 255, 0);
+  grid-area: vis2;
+ }
+
+ #vis3 {
+  background-color: rgb(104, 23, 106);
+  grid-area: vis3;
+ }
+
+ #vis4 {
+  background-color: rgb(67, 121, 121);
+  grid-area: vis4;
+  padding-left: 5px;
+ }
+
+ #vis5 {
+  background-color: rgb(163, 197, 69);
+  grid-area: vis5;
+  z-index: 0;
+  width: 1000px;
+  height: 500px;
+  
+ }
 
 footer {
-    position: fixed;
+    /*position: fixed;*/
     left: 0;
     bottom: 0;
     width: 100%;
@@ -47,40 +98,44 @@ footer {
     margin-top: 100px;
   }
 
+
+  .tooltip {
+    background-color: rgb(216, 214, 214);
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
 /* SD302: TAB STYLING */
 .tab-container {
-    /* Styling for tabs */
     position: fixed;
     top: 0;
     width: 100%;
     background-color: #7a98a7;
-    /*border: 3px solid #f4f1e9;
-    border-radius: 5px 5px 0px 0px;*/
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 5px;
     align-items: center;
-    /*margin-top: 30px;*/
   }
   
   .tabHead {
-    /* centre tab buttons */
     margin-right: auto;
     margin-left: 10%;
   }
 
 .tab {
-    /* centre tab buttons */
     display: flex;
     justify-content: center;
   }
   
 
-
+/*
 .tab button {
-    /* Styling for buttons to move between tabs*/
     background-color: inherit;
     color: #f4f1e9;
     border: none;
@@ -91,7 +146,6 @@ footer {
   }
   
 .tab button:hover {
-    /* change css when cursor hovers over */
     background-color: #527b90;
     color: #f4f1e9;
     font-weight: bold;
@@ -99,8 +153,8 @@ footer {
   }
   
 .tab button.active {
-    /* change css when cursor hovers over */
     background-color: #49bbf5;
     color: #f4f1e9;
     font-weight: bold;
   }
+  */

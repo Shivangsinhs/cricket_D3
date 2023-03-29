@@ -1028,6 +1028,47 @@
       </table>
       <simple-id uuid='{65059CD9-3BE2-431B-BFE7-EE618D9CDBD6}' />
     </worksheet>
+    <worksheet name='Looser'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column caption='Looser' datatype='string' name='[Calculation_1814387706847416320]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [winner] == [team1]&#13;&#10;THEN [team2]&#13;&#10;ELSE [team1]&#13;&#10;END' />
+            </column>
+            <column-instance column='[Calculation_1814387706847416320]' derivation='Count' name='[cnt:Calculation_1814387706847416320:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1814387706847416320]' derivation='None' name='[none:Calculation_1814387706847416320:nk]' pivot='key' type='nominal' />
+            <column caption='Team1' datatype='string' name='[team1]' role='dimension' type='nominal' />
+            <column caption='Team2' datatype='string' name='[team2]' role='dimension' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2009</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:Calculation_1814387706847416320:qk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]</cols>
+      </table>
+      <simple-id uuid='{6F162036-9BE3-44DA-9225-21D0FF3067D3}' />
+    </worksheet>
     <worksheet name='Sheet 1 (2)'>
       <table>
         <view>
@@ -1163,7 +1204,7 @@
         </view>
         <style />
         <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
@@ -1194,17 +1235,23 @@
             <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
             <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]'>
-            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Chennai Super Kings&quot;' />
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Deccan Chargers&quot;' />
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Delhi Daredevils&quot;' />
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Kings XI Punjab&quot;' />
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Kolkata Knight Riders&quot;' />
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Mumbai Indians&quot;' />
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Rajasthan Royals&quot;' />
-              <groupfilter function='member' level='[none:winner:nk]' member='&quot;Royal Challengers Bangalore&quot;' />
+          <filter class='categorical' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Calculation_1814387706847416320:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Delhi Capitals&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Gujarat Lions&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Kochi Tuskers Kerala&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Pune Warriors&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Rising Pune Supergiant&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Rising Pune Supergiants&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Sunrisers Hyderabad&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='%null%' />
+              </groupfilter>
             </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]'>
+            <groupfilter function='level-members' level='[none:winner:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
             <min>2008</min>
@@ -1213,6 +1260,7 @@
           <slices>
             <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
             <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]</column>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -1310,6 +1358,79 @@
         <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]</cols>
       </table>
       <simple-id uuid='{70CF2862-5BF3-46E9-95B3-E7DBCF98A77E}' />
+    </worksheet>
+    <worksheet name='Won against (3)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IPL Matches 2008-2020' name='federated.1kt9qke1btmd1y1bmql0e1wbj7yn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kt9qke1btmd1y1bmql0e1wbj7yn'>
+            <column caption='Looser' datatype='string' name='[Calculation_1814387706847416320]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [winner] == [team1]&#13;&#10;THEN [team2]&#13;&#10;ELSE [team1]&#13;&#10;END' />
+            </column>
+            <column-instance column='[date]' derivation='CountD' name='[ctd:date:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1814387706847416320]' derivation='None' name='[none:Calculation_1814387706847416320:nk]' pivot='key' type='nominal' />
+            <column-instance column='[team1]' derivation='None' name='[none:team1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[team2]' derivation='None' name='[none:team2:nk]' pivot='key' type='nominal' />
+            <column-instance column='[winner]' derivation='None' name='[none:winner:nk]' pivot='key' type='nominal' />
+            <column caption='Team1' datatype='string' name='[team1]' role='dimension' type='nominal' />
+            <column caption='Team2' datatype='string' name='[team2]' role='dimension' type='nominal' />
+            <column caption='Winner' datatype='string' name='[winner]' role='dimension' type='nominal' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Calculation_1814387706847416320:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Delhi Capitals&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Gujarat Lions&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Kochi Tuskers Kerala&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Pune Warriors&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Rising Pune Supergiant&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Rising Pune Supergiants&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='&quot;Sunrisers Hyderabad&quot;' />
+                <groupfilter function='member' level='[none:Calculation_1814387706847416320:nk]' member='%null%' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]'>
+            <groupfilter function='level-members' level='[none:winner:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' included-values='in-range'>
+            <min>2008</min>
+            <max>2008</max>
+          </filter>
+          <slices>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]</column>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]</column>
+            <column>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[ctd:date:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.4832596778869629' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:team2:nk]</rows>
+        <cols>[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:team1:nk]</cols>
+      </table>
+      <simple-id uuid='{298FD7B4-075B-47BC-B58A-EF43F560D7AA}' />
     </worksheet>
     <worksheet name='Won at'>
       <table>
@@ -1440,7 +1561,7 @@
       </cards>
       <simple-id uuid='{E5F64A3F-1767-4388-B2D6-C2A1C2104BC6}' />
     </window>
-    <window class='worksheet' name='Winners'>
+    <window class='worksheet' maximized='true' name='Winners'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1467,6 +1588,34 @@
         </edge>
       </cards>
       <simple-id uuid='{9E16BC3C-AEE0-4F20-A83F-DF92FAEA77E0}' />
+    </window>
+    <window class='worksheet' name='Looser'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2B47FE1E-91F4-45C5-8025-0E5B1B386E4D}' />
     </window>
     <window class='worksheet' name='Cities'>
       <cards>
@@ -1562,7 +1711,7 @@
       </cards>
       <simple-id uuid='{B93D49CD-EDA8-4EF1-B840-3515F192833F}' />
     </window>
-    <window class='worksheet' maximized='true' name='Won against'>
+    <window class='worksheet' name='Won against'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1589,11 +1738,47 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]' type='filter' />
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]' type='filter' />
             <card pane-specification-id='0' param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[cnt:winner:qk]' type='size' />
           </strip>
         </edge>
       </cards>
       <simple-id uuid='{E7ADDB51-BCCC-4329-A99F-1699246F96BB}' />
+    </window>
+    <window class='worksheet' name='Won against (3)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[yr:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:Calculation_1814387706847416320:nk]' type='filter' />
+            <card param='[federated.1kt9qke1btmd1y1bmql0e1wbj7yn].[none:winner:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D3728157-3835-48C8-9CD2-7CB09678F5A9}' />
     </window>
     <window class='worksheet' name='Won at'>
       <cards>

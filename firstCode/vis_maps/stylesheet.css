@@ -16,3 +16,11 @@ body {
     width: 1000px;
     height: 500px;
 }
+
+.tooltip {
+    background-color: gray;
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
