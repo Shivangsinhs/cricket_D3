@@ -68,6 +68,7 @@ body {
  #vis3 {
   background-color: rgb(104, 23, 106);
   grid-area: vis3;
+  height: 400px;
  }
 
  #vis4 {
@@ -79,9 +80,14 @@ body {
  #vis5 {
   background-color: rgb(163, 197, 69);
   grid-area: vis5;
+  padding-left: 5px;
+ }
+
+ #mapB {
+  background-color: rgb(163, 197, 69);
   z-index: 0;
-  width: 1000px;
-  height: 500px;
+  width: 700px;
+  height: 400px;
   
  }
 
@@ -104,9 +110,33 @@ footer {
     display: flex;
     width: auto;
     height: auto;
+    font-size: 15px;
     padding: 5px;
     border: 1px solid black;
     border-radius: 7px;
+    opacity: 0.9;
+}
+
+  .circleM {
+  fill: rgb(177, 82, 82);
+  stroke: black;
+  stroke-width: 0.5px;
+  opacity: 0.8;
+}
+
+.circleS {
+  fill: rgb(183, 41, 41);
+  stroke: black;
+  stroke-width: 0.5px;
+  opacity: 1;
+}
+
+.axis-title {
+  font-size: 15px;
+}
+
+.legend-text {
+  font-size: 12px;
 }
 
 /* SD302: TAB STYLING */
@@ -121,6 +151,7 @@ footer {
     justify-content: space-between;
     padding: 5px;
     align-items: center;
+    z-index: 3;
   }
   
   .tabHead {
