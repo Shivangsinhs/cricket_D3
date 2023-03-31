@@ -51,6 +51,7 @@ var topWickets = d3.select("#topWickets").append("svg")
 d3.csv("top10Batsman.csv").then(function(data) {
 
   function init(data, type= 'most_runs') {
+
       x.domain(data.map(function(d) { return d.players_name; }));
       x2.domain([1, 10])
       y.domain([0, d3.max(data, function(d) { return d[type]; })]);
@@ -66,9 +67,9 @@ d3.csv("top10Batsman.csv").then(function(data) {
         .attr("height", function(d) { return height - y(d[type]); })
         .style('fill', 'steelblue')
         .on("mouseover", function(event, d) {
-          d3.select(this).style("fill", 'red');
+          d3.select(this).style("fill", 'Purple');
           return tip.html(`${d.players_name} <br/>
-            Score: ${d.most_runs}
+            Score: ${d.most_runs} <br/>
             Team Name: ${d.team}
           `).style("visibility", "visible")
           .style("top", event.pageY - 100 + 'px' )
@@ -112,9 +113,10 @@ d3.csv("top10Batsman.csv").then(function(data) {
             .attr("height", function(d) { return height - y(d.most_wickets); })
             .style('fill', 'steelblue')
             .on("mouseover", function(event, d) {
-              d3.select(this).style("fill", 'red');
+              d3.select(this).style("fill", ' Orange');
               return tip.html(`${d.players_name} <br/>
-                Score: ${d.most_wickets}
+                Wickets: ${d.most_wickets}<br/>
+                Team Name: ${d.Team}
               `).style("visibility", "visible")
               .style("top", event.pageY - 100 + 'px' )
               .style("left", event.pageX - 50  + 'px')
