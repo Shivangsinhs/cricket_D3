@@ -3,7 +3,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     height = 500 - margin.top - margin.bottom;
 
 var yearScale = d3.scaleLinear()
-    .domain([2008,2022]).range([20,1150]);
+    .domain([2008,2020]).range([20,1150]);
 
 var svg = d3.select('#titleWinner').append('svg').attr('width', 1200).attr('height', 300);
 
@@ -16,7 +16,7 @@ svg.append('text')
 
 
 var yearScale = d3.scaleLinear()
-    .domain([2008,2022]).range([50,width]);
+    .domain([2008,2020]).range([50,width]);
 
 
 d3.csv("ipl_data.csv").then((data) => {
@@ -65,7 +65,7 @@ d3.csv("ipl_data.csv").then((data) => {
             .attr('x2', 50)
             .attr('y2', 160)
             .attr("stroke-width","5")
-            .attr("stroke",(d)=> d.year == 2022 ? "#4682b4" : '')
+            .attr("stroke",(d)=> d.year == 2020 ? "#4682b4" : '')
 
 })
 
