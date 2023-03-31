@@ -65,6 +65,7 @@ d3.csv("top10Batsman.csv").then(function(data) {
 
 
     let dataByYear = data.filter((e)=> e.year == year); 
+    console.log(dataByYear);
     init(dataByYear, 'most_runs');
 
          
