@@ -11,37 +11,63 @@ body {
 }
 
 /* SD302: Styling for headers */
-h1 {
-    /*text-align: center;*/
-    font-size: 25px;
-    font-weight: none;
-    color: rgb(48, 47, 47);
-    right: 0;
-  }
+
 
 body {
     background-color: #9bc2d5;
   }
 
+  
+header {
+  grid-area: head;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #7a98a7;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+}
+
+.tabHead {
+  margin-right: auto;
+  margin-left: 10%;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  margin-right: 60%;
+}
+
 #wrapper {
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   margin: auto;
-  padding-top: 120px;
+  padding-top: 80px;
   display: grid;
   grid-template-areas: 
   'intro intro intro intro'
   'vis1 vis1 vis1 vis1'
   'vis2 vis3 vis3 vis3'
   'vis4 vis4 vis5 vis5'
-  'vis4 vis4 vis5 vis5';
+  'vis4 vis4 vis5 vis5'
+  'discl discl discl discl';
   grid-gap: 10px;
   
-  /*display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;*/
 }
+
+h1 {
+  /*text-align: center;*/
+  font-size: 25px;
+  font-weight: none;
+  color: rgb(48, 47, 47);
+  right: 0;
+}
+
 
 #intro {
   background-color: rgb(84, 129, 129);
@@ -91,6 +117,15 @@ body {
   
  }
 
+ #discl {
+  background-color: rgb(84, 129, 129);
+  grid-area: discl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ }
+
 footer {
     /*position: fixed;*/
     left: 0;
@@ -101,7 +136,7 @@ footer {
     color: #050606;
     padding: 10px;
     font-weight: none;
-    margin-top: 100px;
+    margin-top: 20px;
   }
 
 
@@ -131,6 +166,11 @@ footer {
   opacity: 1;
 }
 
+.visTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .axis-title {
   font-size: 15px;
 }
@@ -139,7 +179,16 @@ footer {
   font-size: 12px;
 }
 
-/* SD302: TAB STYLING */
+.title {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.titleT {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* SD302: TAB STYLING 
 .tab-container {
     position: fixed;
     top: 0;
@@ -164,6 +213,7 @@ footer {
     justify-content: center;
   }
   
+  */
 
 /*
 .tab button {
