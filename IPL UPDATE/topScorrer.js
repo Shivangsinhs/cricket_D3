@@ -69,6 +69,7 @@ d3.csv("top10Batsman.csv").then(function(data) {
           d3.select(this).style("fill", 'red');
           return tip.html(`${d.players_name} <br/>
             Score: ${d.most_runs}
+            Team Name: ${d.team}
           `).style("visibility", "visible")
           .style("top", event.pageY - 100 + 'px' )
           .style("left", event.pageX - 50  + 'px')
@@ -156,3 +157,7 @@ d3.csv("top10Batsman.csv").then(function(data) {
    
 
 });
+
+
+
+     
