@@ -3,11 +3,15 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 1200 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
     
-let year = '2022';
+let year = '2020';
 
 var x = d3.scaleBand()
       .range([0, width])
       .padding(0.1);
+
+var x2 = d3.scaleLinear()
+      .range([0, width])
+
 var y = d3.scaleLinear()
       .range([height, 0]);
 
@@ -19,7 +23,7 @@ function scaley(score){
     return y(score)+15;
 }
 var yearScale = d3.scaleLinear()
-    .domain([2008,2022]).range([50,width]);
+    .domain([2008,2020]).range([50,width]);
 
           
 var topScorrer = d3.select("#topScorrer").append("svg")
@@ -29,6 +33,13 @@ var topScorrer = d3.select("#topScorrer").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
+var tip = d3.select("#topScorrer")
+  .append("div")
+  .attr("class", "tip")
+  .style("position", "absolute")
+  .style("z-index", "10")
+  .style("visibility", "hidden");
+  
 var topWickets = d3.select("#topWickets").append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -41,7 +52,9 @@ d3.csv("top10Batsman.csv").then(function(data) {
 
   function init(data, type= 'most_runs') {
       x.domain(data.map(function(d) { return d.players_name; }));
+      x2.domain([1, 10])
       y.domain([0, d3.max(data, function(d) { return d[type]; })]);
+
       topScorrer.selectAll('*').remove();
       let bars = topScorrer.selectAll(".bar")
       .data(data)
@@ -51,7 +64,20 @@ d3.csv("top10Batsman.csv").then(function(data) {
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d[type]); })
         .attr("height", function(d) { return height - y(d[type]); })
-        .style('fill', 'steelblue');
+        .style('fill', 'steelblue')
+        .on("mouseover", function(event, d) {
+          d3.select(this).style("fill", 'red');
+          return tip.html(`${d.players_name} <br/>
+            Score: ${d.most_runs}
+          `).style("visibility", "visible")
+          .style("top", event.pageY - 100 + 'px' )
+          .style("left", event.pageX - 50  + 'px')
+        })
+  	    .on("mouseleave", function(){
+          d3.select(this)
+            .style("fill", 'steelblue');
+          return tip.style("visibility", "hidden");
+        });
 
       topScorrer.append("g")
           .attr("transform", "translate(0," + height + ")")
@@ -82,7 +108,20 @@ d3.csv("top10Batsman.csv").then(function(data) {
             .attr("width", x.bandwidth())
             .attr("y", function(d) { return y(d.most_wickets); })
             .attr("height", function(d) { return height - y(d.most_wickets); })
-            .style('fill', 'steelblue');
+            .style('fill', 'steelblue')
+            .on("mouseover", function(event, d) {
+              d3.select(this).style("fill", 'red');
+              return tip.html(`${d.players_name} <br/>
+                Score: ${d.most_wickets}
+              `).style("visibility", "visible")
+              .style("top", event.pageY - 100 + 'px' )
+              .style("left", event.pageX - 50  + 'px')
+            })
+            .on("mouseleave", function(){
+              d3.select(this)
+                .style("fill", 'steelblue');
+              return tip.style("visibility", "hidden");
+            });
 
             topWickets.append("g")
               .attr("transform", "translate(0," + height + ")")
@@ -117,7 +156,3 @@ d3.csv("top10Batsman.csv").then(function(data) {
    
 
 });
-
-
-
-     
