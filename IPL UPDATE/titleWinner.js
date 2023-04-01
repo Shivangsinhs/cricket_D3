@@ -1,12 +1,11 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 1200 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
 var yearScale = d3.scaleLinear()
-    .domain([2008,2020]).range([20,1150]);
+    .domain([2008,2022]).range([50,1150]);
 
 var svg = d3.select('#titleWinner').append('svg').attr('width', 1200).attr('height', 300);
 
+svg.append('g').attr('class', 'x axis')
+    .attr('transform', 'translate(0,150)')
+    .call(d3.axisBottom(yearScale).tickFormat(function(d){return d;}));
 
 svg.append('text')
     .attr('class', 'title')
@@ -14,59 +13,38 @@ svg.append('text')
     .style('font-weight', 'bold')
     .text('IPL Title Winners');
 
+d3.csv("ipl_data.csv").then((data)=>{
+    console.log(data)
+    
+    let labels = svg.selectAll('.lab')
+                .data(data)
+                .enter()
+                .append("text")
+                .attr('class','lab')
+                .attr("x", function(d){ return yearScale(d.year);})
+                .attr("y", function(d, i){ 
+                    if(i==1 || i == 14){
+                        return 120;
+                    }
+                    else{
+                        return 110;
+                    }
+                })
+                .style('fill', 'black')
+                .style('font-size', '10px')
+                .style('text-anchor', 'middle')
+                .text(function(d){ return d.winner;}).call(wrap,30)
 
-var yearScale = d3.scaleLinear()
-    .domain([2008,2020]).range([50,width]);
 
-
-d3.csv("ipl_data.csv").then((data) => {
-    let g = svg.append("g").selectAll('g')
-        .data(data)
-        .enter()
-        .append('g').attr('class', (d)=>`x axis y${d.year}`)
-        .attr('id', (d)=>d.year)
-        .attr('class', `title`)
-        .attr('transform', (d, i)=> `translate(${yearScale(d.year)},70)`)
-        .on("mouseover", function(d,i) {
-            d3.select(this)
-                .transition()
-                .duration(300)
-                .attr("transform", (d)=> `translate(${yearScale(Number(d.year))}, 60) scale(1.2)`);
-        })
-        .on("mouseleave", function(d,i) {
-            d3.select(this)
-                .transition()
-                .duration(300)
-                .attr("transform", (d)=> `translate(${yearScale(Number(d.year))}, 70) scale(1)`);
-        });
-
-        g.append('text')
-            .attr("x", 10)
-            .attr("y", 140)
-            .text((d)=>d.year);
-
-        g.append('text')
-            .style('fill', 'black')
-            .style('font-size', '10px')
-            .style('text-anchor', 'middle')
-            .attr("x", 25)
-            .attr("y", (d, i)=> [1, 14].includes(i) ? 70 : 60)
-            .text((d)=>d.winner).call(wrap,30);
-
-        g.append("image")
-            .attr('href', function(d){ return d.image; })
-            .attr('id', function(d){ return d.year; })            
-            .attr("width", "50px")
-            .attr("height", "50px");
-        
-        g.append('line')
-            .attr('x1', 0)
-            .attr('y1', 160)
-            .attr('x2', 50)
-            .attr('y2', 160)
-            .attr("stroke-width","5")
-            .attr("stroke",(d)=> d.year == 2020 ? "#4682b4" : '')
-
+    let icons = svg.selectAll('image')
+                .data(data)
+                .enter()
+                .append("image")
+                .attr('href', function(d){ return d.image; })
+                .attr("x", function(d){ return yearScale(d.year)-25;})
+                .attr("y", function(d){ return 60;})
+                .attr("width", "50px")
+                .attr("height", "50px")
 })
 
 function wrap(text, width) {
