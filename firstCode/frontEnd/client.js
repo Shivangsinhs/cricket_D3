@@ -31,6 +31,7 @@
         } 
     }
 
+    
     // access mapbox api, by using token
     mapboxgl.accessToken = token;
 
