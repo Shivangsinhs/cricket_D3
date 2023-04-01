@@ -52,7 +52,8 @@ header {
   grid-template-areas: 
   'intro intro intro intro'
   'vis1 vis1 vis1 vis1'
-  'vis2 vis3 vis3 vis3'
+  'vis12 vis12 vis12 vis12'
+  'vis2 vis2 vis3 vis3'
   'vis4 vis4 vis5 vis5'
   'vis4 vis4 vis5 vis5'
   'discl discl discl discl';
@@ -84,6 +85,11 @@ h1 {
   padding: 5px;
   display: flex;
   flex-direction: row;
+ }
+
+ #titleWinner {
+  background-color: rgb(120, 155, 116);
+  grid-area: vis12;
  }
 
  #vis2 {
