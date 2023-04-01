@@ -43,35 +43,11 @@
 
     const container = mapBox.getCanvasContainer();
 			
-    // set-up filter as HTML select with options from data
-    function initaliseTimeline(data) {
-
-        let nestedByYear = d3.group(data, d => (d.Date).getFullYear())
-            .entries(data);
-
-        let dropDownM = d3.select("#dropDownMenu");
-
-        dropDownM.append("select")
-            .attr("id", "select1")
-            .selectAll("option")
-            .data(nestedByYear)
-            .enter()
-            .append("option")
-                .attr("value", d => d[0])
-                .text(d => d[0]);
-        
-        let select = document.getElementById("select1");
-        let initalOpt = document.createElement("option");
-        initalOpt.text = "All years";
-        initalOpt.value = 0;
-        select.insertBefore(initalOpt, select.firstChild);
-        select.value = initalOpt.value;
-        filterTest(select.value);
-
-    }
+    
+    
 
     // initalising the filter
-    rolledYear = initaliseTimeline(myData);
+    //rolledYear = initaliseTimeline(myData);
 
     // set-up filter, on change process starts
     d3.select("#dropDownMenu")
@@ -87,17 +63,29 @@
     const dataPathWin = "../data/ipl_data.csv";
 
     const winData = await d3.csv(dataPathWin);
+    
+    const dataPahtBats = "../data/top10Batsman.csv";
+    const dataPahtWick = "../data/top10Wickets.csv";
+    const batsData = await d3.csv(dataPahtBats);
+    const wickData = await d3.csv(dataPahtWick);
+    console.log("client", wickData);
 
-    console.log("client", winData);
+
     function initaliseLogos(data) {
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 1200 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        height = 300 - margin.top - margin.bottom;
 
         //var yearScale = d3.scaleLinear()
          //   .domain([2008,2020]).range([20,1150]);
 
-        var svg = d3.select('#titleWinner').append('svg').attr('width', 1200).attr('height', 300);
+        var svg = d3.select('#titleWinner').append('svg').attr('width', 1200).attr('height', 250);
+
+        var button = document.createElement("button");
+        button.id = "allBut"
+        button.textContent = "All years (2008-2020)"
+
+        document.getElementById("titleWinner").append(button);
 
         
         svg.append('text')
@@ -115,7 +103,7 @@
             .enter()
             .append('g').attr('class', (d)=>`x axis y${d.year}`)
             .attr('id', (d)=>d.year)
-            .attr('class', `title`)
+            .attr('class', `titleW`)
             .attr('transform', (d, i)=> `translate(${yearScale(d.year)},70)`)
             .on("mouseover", function(d,i) {
                 d3.select(this)
@@ -192,86 +180,372 @@
 
     }
     
-    
+    filterTest(0);
     initaliseLogos(winData);
+
+    function showPlayers(bats, wicks) {
+
+        var margin = {top: 50, right: 0, bottom: 75, left: 70},
+        width = 600 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+            
+        let year = '2020';
+
+        var x = d3.scaleBand()
+            .range([0, width])
+            .padding(0.1);
+
+        var x2 = d3.scaleLinear()
+            .range([0, width])
+
+        var y = d3.scaleLinear()
+            .range([height, 0]);
+
+        function scalex(sl){ 
+            return x(sl)+35;
+        }
+
+        function scaley(score){ 
+            return y(score)+15;
+        }
+        var yearScale = d3.scaleLinear()
+            .domain([2008,2020]).range([50,width]);
+
+                
+        var topScorrer = d3.select("#vis2").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+            
+        d3.select("#vis2").select("svg").append('text')
+            .attr('class', 'visTitle')
+            .attr('transform', `translate(${(width + margin.left + margin.right) /2},${30})`)
+            .style('font-weight', 'bold')
+            .text('Best batsmen');
+
+        var tip = d3.select("body")
+            .append("div")
+            .attr("class", "tip")
+            .style("position", "absolute")
+            //.style("visibility", "hidden");
+        
+        var topWickets = d3.select("#vis3").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.select("#vis3").select("svg").append('text')
+            .attr('class', 'visTitle')
+            .attr('transform', `translate(${(width + margin.left + margin.right) /2},${30})`)
+            .style('font-weight', 'bold')
+            .text('Best bowlers');
+        
+
+        // variables for tooltip display - not necessary, but it was buggy before....
+        let tooltipDisplayed = false;
+        let tooltipX = null;
+        let tooltipY = null;
+
+
+        function init(data, type= 'most_runs') {
+
+            x.domain(data.map(function(d) { return d.players_name; }));
+            x2.domain([1, 10])
+            y.domain([0, d3.max(data, function(d) { return d[type]; })]);
+        
+            topScorrer.selectAll('*').remove();
+            let bars = topScorrer.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", function(d) { return x(d.players_name); })
+                .attr("width", function() {
+                    console.log(x.bandwidth())
+                    return x.bandwidth()})
+                .attr("y", function(d) { return y(d[type]); })
+                .attr("height", function(d) { return height - y(d[type]); })
+                .style('fill', 'steelblue')
+                .on("mouseover", function(event, d) {
+
+                    if (!tooltipDisplayed) {
+                        tooltipDisplayed = true;
+                        tooltipX = event.pageX + 20;
+                        tooltipY = event.pageY;
+
+                        //console.log(event)
+                        
+                        d3.select(this)
+                            .style("fill", 'Orange');
+                            return tip.html(`${d.players_name} <br/>
+                                Score: ${d.most_runs} <br/>
+                                Team Name: ${d.team}
+                            `)
+                            .style("visibility", "visible")
+                            .style("top", tooltipY + 'px' )
+                            .style("left", tooltipX  + 'px')
+                    }
+                })
+                .on("mouseleave", function(){
+
+                    if (tooltipDisplayed) {
+                        tooltipDisplayed = false;
+
+                        //console.log(event)
+                        
+                        d3.select(this)
+                            .style("fill", 'steelblue');
+                        return tip.style("visibility", "hidden");
+                    
+                    }
+                 });
+        
+            topScorrer.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x))
+                .attr("class", "x_axisSc")
+                .selectAll("text") // set text of ticks
+                    .attr("transform", "rotate(-28)")
+                    .attr("dx", "-.8em")
+                    .attr("dy", "-.6em")
+                    .attr("text-anchor", "end");
+
+            
+                // set title of x axis
+                d3.select(".x_axisSc")
+                    .append("text")
+                    .text("Top 10 Batsmen")
+                    .style("fill", "black")
+                    .attr("x", (width) / 2)
+                    .attr("y", margin.bottom - 3)
+                    .attr("class", "axis-title")
+                    .attr("id", "axis-title-wick")
+
+        
+            topScorrer.append("g")
+                .call(d3.axisLeft(y))
+                .attr("class", "y_axisSc");
+
+            d3.select(".y_axisSc")
+                .append("text")
+                .text("Runs scored")
+                .style("fill", "black")
+                .attr("transform", `rotate(-90, 0, ${50}) translate(${- 50}, 0)`)
+                .attr("class", "axis-title")
+        }
+
+        
+        function testRollbat(data) {
+
+            let rolledData = d3.rollup(data, 
+                v => ({seasons: v.length, 
+                    players_name: v[0].players_name ,
+                    most_runs: d3.sum(v, d => d.most_runs), 
+                    matches: d3.sum(v, d => d.matches),
+                    team: v[0].team,
+                    year: "2008 - 2020"}), 
+                d => d.players_name);
+
+            let rollArray = Array.from(rolledData);
+            rollArray = rollArray.sort((a, b) => d3.descending(a[1].most_runs, b[1].most_runs))
+            //console.log("bats", rollArray)
+            let overallBest = [];
+            for (let x = 0; x < 10; x++) {
+                overallBest.push(rollArray[x][1])
+            }
+            //console.log(overallBest);
+            //overallBest = overallBest.sort((a, b) => d3.descending(a.most_runs, b.most_runs)) 
+            //console.log("second", overallBest)
+            return overallBest;
+        }
+
+        
+        
+
+        // variables for tooltip display - not necessary, but it was buggy before....
+        let tooltipDisplayedW = false;
+        let tooltipXW = null;
+        let tooltipYW = null;
+
+        function initWicket(data) {
+            x.domain(data.map(function(d) { return d.players_name; }));
+            y.domain([0, d3.max(data, function(d) { return d.most_wickets; })]);
+            topWickets.selectAll('*').remove();
+            topWickets.select("axis-title-wick").remove()
+            topWickets.selectAll(".bar")
+            
+            .data(data)
+            .enter().append("rect")
+              .attr("class", "bar")
+              .attr("x", function(d) { return x(d.players_name); })
+              .attr("width", x.bandwidth())
+              .attr("y", function(d) { return y(d.most_wickets); })
+              .attr("height", function(d) { return height - y(d.most_wickets); })
+              .style('fill', 'steelblue')
+              .on("mouseover", function(event, d) {
+
+                if (!tooltipDisplayedW) {
+                    
+                    //console.log(event)
+
+                    tooltipDisplayedW = true;
+                    tooltipXW = event.pageX + 20;
+                    tooltipYW = event.pageY;
+
+                    d3.select(this)
+                        .style("fill", 'Purple');
+                        return tip.html(`${d.players_name} <br/>
+                            Wickets: ${d.most_wickets}<br/>
+                            Team Name: ${d.Team}
+                        `)
+                        .style("visibility", "visible")
+                        .style("top", tooltipYW + 'px' )
+                        .style("left", tooltipXW  + 'px')
+                }
+              })
+              .on("mouseleave", function(){
+                
+                if (tooltipDisplayedW) {
+                    
+                    tooltipDisplayedW = false;
+
+                    //console.log(event)
+                    d3.select(this)
+                    .style("fill", 'steelblue');
+                    return tip.style("visibility", "hidden");
+                }
+              });
+  
+                // set x axis
+                topWickets.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                    .attr("class", "x_axisW")
+                    .selectAll("text") // set text of ticks
+                        .attr("transform", "rotate(-28)")
+                        .attr("dx", "-.8em")
+                        .attr("dy", "-.6em")
+                        .attr("text-anchor", "end");
+
+              
+                // set title of x axis
+                d3.select(".x_axisW")
+                    .append("text")
+                    .text("Top 10 Bowlers")
+                    .style("fill", "black")
+                    .attr("x", (width) / 2)
+                    .attr("y", margin.bottom - 3)
+                    .attr("class", "axis-title")
+                    .attr("id", "axis-title-wick")
+
+  
+                topWickets.append("g")
+                    .call(d3.axisLeft(y))
+                    .attr("class", "y_axis");
+
+                         // set title of y axis
+                d3.select(".y_axis")
+                    .append("text")
+                    .text("Wickets taken")
+                    .style("fill", "black")
+                    .attr("transform", `rotate(-90, 0, ${40}) translate(${- 50}, 0)`)
+                    .attr("class", "axis-title")
+        }
+
+        
+        function testRollbatW(data) {
+
+            let rolledData = d3.rollup(data, 
+                v => ({seasons: v.length, 
+                    players_name: v[0].players_name ,
+                    most_wickets: d3.sum(v, d => d.most_wickets), 
+                    matches: d3.sum(v, d => d.matches),
+                    team: v[0].team,
+                    year: "2008 - 2020"}), 
+                d => d.players_name);
+
+            let rollArray = Array.from(rolledData);
+            rollArray = rollArray.sort((a, b) => d3.descending(a[1].most_wickets, b[1].most_wickets))
+            console.log("bats", rollArray)
+            let overallBest = [];
+            for (let x = 0; x < 10; x++) {
+                overallBest.push(rollArray[x][1])
+            }
+            console.log(overallBest);
+            overallBest = overallBest.sort((a, b) => d3.descending(a.most_wickets, b.most_wickets)) 
+            console.log("second", overallBest)
+            return overallBest;
+        }
+        
+        let initalDisp = testRollbat(batsData);
+        let initalDispW = testRollbatW(wicks);
+        init(initalDisp, 'most_runs');
+        initWicket(initalDispW);
+        d3.selectAll('line').remove()
+        
+        var resetBut = document.getElementById("allBut");
+        
+        function reset() {
+            let initalDisp = testRollbat(batsData);
+            let initalDispW = testRollbatW(wicks);
+            init(initalDisp, 'most_runs');
+            initWicket(initalDispW);
+            d3.selectAll('line').remove()
+            filterTest(0);
+        }
+        
+        resetBut.onclick = reset;
+
+
+        d3.selectAll('.titleW')
+            .on("click", function(d) {
+
+                d3.selectAll('line').remove()
+                    
+                d3.select(this)
+                    .append('line')
+                    .attr('x1', 0)
+                    .attr('y1', 160)
+                    .attr('x2', 50)
+                    .attr('y2', 160)
+                    .attr("stroke-width","5")
+                    .attr("stroke","#4682b4")
+    
+                init(bats.filter((e)=> e.year == this.id));
+                initWicket(wicks.filter((e)=> e.year == this.id));
+                
+                console.log(this.id)
+                console.log(typeof this.id)
+                filterTest(this.id)
+            })
+        
+
+    }
+
+    showPlayers(batsData, wickData);
 
     // return filtered cleaned data
     function filterTest(filter) {
+        console.log(filter)
+        console.log(typeof filter)
         if (filter != 0) {
             var newData = myData.filter(function (d) { return d.year == filter});
             newData.sort((a, b) => d3.descending(a.Date, b.Date))
             var imgSrc = newData[0].Winner + ".png"
             var winner = newData[0];
             winner.url = imgSrc;
-            changeLogo(winner);
             scoreTable(newData);
             cityMap(newData);
         } else {
-            imgSrc = "IPL.png"
-            changeLogo(imgSrc);
             scoreTable(myData);
             cityMap(myData);
             //console.log(myData)
         }
     }
 
-    // on change of filter change the logo that is displayed
-    function changeLogo(data) {
-
-        // set-up svg
-        const margin = 10;	
-        const width = 150;	
-        const height = 150;	
-
-        // remove svg, to not load multiple ones
-        d3.select('#svg1').remove()
-
-        // create svg as child of DOM div selected by id (#)
-        const bar_svg = d3.select("#vis1")
-            .append("svg")
-                .attr("id", "svg1")
-                .attr("width", width + margin)
-                .attr("height", height + margin)
-
-        const img = bar_svg.append("image")
-            .attr('alt', 'Logo of Winning Team');
-
-        // condition to check whether an object or just the source of the placholder is shown
-        var text = null;
-        var src = null;
-        if (typeof data == "object") {
-            text = "In "+ data.year + ", " + data.Winner + " won the IPL in " + data.City  + "<br> against " + data.Looser;
-            src = data.url;
-            //console.log(src)
-        } else {
-            text = "Indian Premier League"
-            src = data;
-        }
-
-        // display correct source and text for logo
-        img
-            .attr("xlink:href", `../Winners/${src}`)
-            .attr("x", margin)
-            .attr("y", margin)
-            .attr("width", width - margin)
-            .attr("height", height - margin)
-            .on("mouseenter", function(event, d) {
-
-                d3.select("body")
-                    .append("div")
-                    .attr("class", "tooltip")
-                    .style("position", "absolute")
-                    .html(text)
-                    .style("left", (event.pageX + 20) + "px")
-                    .style("top", (event.pageY) + "px")
-            })
-            .on("mouseout", function(event, d) {
-                
-                d3.selectAll(".tooltip")
-                    .remove();
-            });
-    
-    }
 
     // on change of filter change the Score Table that is displayed
     function scoreTable(data) {
@@ -338,7 +612,7 @@
 
         // set size for plot
         const width = 450;
-        const height = 450;
+        const height = 400;
         const margin = 50;
 
         // scaling height
@@ -376,6 +650,12 @@
             .attr("id", "svg4")
             .attr("width", width + (margin * 4))
             .attr("height", height)
+        
+        svgSP.append('text')
+            .attr('class', 'visTitle')
+            .attr('transform', `translate(${(width /2)},${30})`)
+            .style('font-weight', 'bold')
+            .text('Score Table');
 
         // set X axis
         svgSP
@@ -402,11 +682,11 @@
 
          // set title of y axis
          d3.select(".y_axis")
-         .append("text")
-         .text("Won matches")
-         .style("fill", "black")
-         .attr("transform", `rotate(-90, 0, ${margin - 20}) translate(${-margin - 100 }, 0)`)
-         .attr("class", "axis-title")
+            .append("text")
+            .text("Won matches")
+            .style("fill", "black")
+            .attr("transform", `rotate(-90, 0, ${margin - 20}) translate(${-margin - 100 }, 0)`)
+            .attr("class", "axis-title")
 
         const legend = svgSP
             .append("g")

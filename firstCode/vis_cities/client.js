@@ -1,7 +1,7 @@
 
 (async () => {
 
-    const datapath = "../data/IPL Matches 2008-2020_win_loss_small.csv"
+    const datapath = "../data/IPL Matches 2008-2020_win_loss_small1.csv"
     const csvData = await d3.csv(datapath)
 
     console.log(csvData);

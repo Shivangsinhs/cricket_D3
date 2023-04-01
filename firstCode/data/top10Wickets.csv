@@ -1,0 +1,131 @@
+sl,players_name,matches,most_wickets,year,Team
+1,Sohail Tanvir,11,22,2008, Rajastan Royal
+2,Shane Warne,15,19,2008, Rajastan Royal
+3,Shanthakumaran Sreesanth,15,19,2008,Kings XI punjab
+4,Piyush Chawla,15,17,2008,Kings XI punjab
+5,Albie Morkel,13,17,2008,Chennai SuperKings
+6,Shane Watson,15,17,2008,Rajastan Royal
+7,Manpreet Gony,16,17,2008,Chennai SuperKings
+8,VY Mahesh,11,16,2008, Delhi Daredevils
+9,Irfan Pathan,14,15,2008,Kings XI punjab
+10,RP Singh,14,15,2008,Deccan Charges
+1,RP Singh,16,23,2009,Deccan Charges
+2,Anil Kumble,16,21,2009,Royal Challengers Banglore
+3,Pragyan Ojha,15,18,,Deccan Charges
+4,Lasith Malinga,13,18,2009,Mumbai Indians
+5,Irfan Pathan,14,17,2009,Kings XI punjab
+6,Munaf Patel,11,16,2009,Rajastan Royals
+7,Shane Warne,13,14,2009,Rajastan Royals
+8,Muttiah Muralitharan,13,14,2009, Chennai SuperKings
+9,Amit Misra,11,14,2009,Delhi Daredevils
+10,Yusuf Abdulla,9,14,2009,Kings XI punjab
+1,Pragyan Ojha,16,21,2010,Deccan Charges
+2,Harbhajan Singh,15,17,2010,Mumbai Indians
+3,Anil Kumble,16,17,2010,Royal Challengers Banglore
+4,Amit Mishra,14,17,2010,Delhi Daredevils
+5,Vinay Kumar,14,16,2010,Royal Challengers Banglore
+6,Zaheer Khan,14,15,2010,Mumbai Indians
+7,Dale Steyn,15,15,2010,Royal Challengers Banglore
+8,Irfan Pathan,14,15,2010,Kings XI punjab
+9,Kieron Pollard,14,15,2010,Mumbai Indians
+10,Lasith Malinga,13,15,2010,Mumbai Indians
+1,Lasith Malinga,16,28,2011,Mumbai Indians
+2,Munaf Patel,15,22,2011,Mumbai Indians
+3,Sreenath Aravind,13,21,2011,Royal Challengers Banglore
+4,Ravichandran Ashwin,16,20,2011,Chennai Superkings
+5,Amit Mishra,14,19,2011,Delhi Daredevils
+6,Doug Bollinger,13,17,2011,Chennai Superkings
+7,Iqbal Abdulla,15,16,2011,Kolkata Knights Riders
+8,Ryan Harris,13,16,2011,Kings XI punjab
+9,Rahul Sharma,14,16,2011,Pune Warriors
+10,Piyush Chawla,12,16,2011,Kings XI punjab
+1,Morne Morkel,16,25,2012,Delhi Daredevils
+2,Sunil Narine,15,24,2012,Kolkata Knight Riders
+3,Lasith Malinga,14,22,2012,Mumbai Indians
+4,Umesh Yadav,17,19,2012,Delhi Daredevils
+5,Vinay Kumar,15,19,2012,Royal Challengers Banglore
+6,Dale Steyn,12,18,2012,Deccan Charges
+7,Parvinder Awana,12,17,2012,Kings XI punjab
+8,Zaheer Khan,16,17,2012,Royal Challengers Banglore
+9,Kieron Pollard,14,16,2012,Mumbai Indians
+10,Piyush Chawla,16,16,2012,Kings XI punjab
+1,Dwayne Bravo,18,32,2013,ChennaiChennai Superkings
+2,JP Faulkner,15,28,2014,Rajastan Royal
+3,Harbhajan Singh,19,24,2013,Mumbai Indians
+4,Mitchell Johnson,17,24,2013, Mumbai Indians
+5,Vinay Kumar,16,23,2013,Royal Challengers Banglore
+6,Sunil Narine,16,22,2013,Kolkata Knight Riders
+7,Amit Mishra,17,21,2013,Sunrises Hyderabad
+8,Lasith Malinga,17,20,2013,Mumbai Indians
+9,Mohit Sharma,15,20,2013,Chennai Superkings
+10,Dale Steyn,17,19,2013,Sunrises Hyderabad
+1,Mohit Sharma,16,23,2014,Chennai Superkings
+2,Sunil Narine,16,21,2014,Kolkata Knight Riders
+3,Bhuvneshwar Kumar,14,20,2014,Sunrises Hyderabad
+4,Ravindra Jadeja,16,19,2014,Chennai Superkings
+5,Sandeep Sharma,11,18,2014,Kings XI punjab
+6,Mitchell Johnson,14,17,2014.Kings XI punjab
+7,Axar Patel,17,17,2014,Kings XI punjab
+8,Lasith Malinga,10,16,2014,,Mumbai Indians
+9,Varun Aaron,10,16,2014,Rajastan Royals
+10,Ravichandran Ashwin,16,16,2014,Chennai Superkings
+1,Dwayne Bravo,17,26,2015,Chennai Superkings
+2,Lasith Malinga,15,24,2015,,Mumbai Indians
+3,Yuzvendra Chahal,15,23,2015,Royal Challengers Banglore
+4,Ashish Nehra,16,22,2015,Chennai Superkings
+5,Mitchell Starc,13,20,2015,Royal Challengers Banglore
+6,Mitchell McClenaghan,12,18,2015,Mumbai Indians
+7,Harbhajan Singh,15,18,2015,Mumbai Indians
+8,Bhuvneshwar Kumar,14,18,2015,Sunrises Hyderabad
+9,Harshal Patel,15,17,2015,Royal Challengers Banglore
+10,David Wiese,14,16,2015,Royal Challengers Banglore
+1,Bhuvneshwar Kumar,17,23,2016,Sunrises Hyderabad
+2,Yuzvendra Chahal,13,21,2016,Royal Challengers Banglore
+3,Shane Watson,16,20,2016,Royal Challengers Banglore
+4,Dhawal Kulkarni,14,18,2016,Rajastan Royals
+5,Mitchell McClenaghan,14,17,2016,Mumbai Indians
+6,Dwayne Bravo,15,17,2016,Chennai Superkings
+7,Mustafizur Rahman,16,17,2016,Sunrises Hyderabad
+8,Jasprit Bumrah,14,15,2016,Mumbai Indians
+9,Sandeep Sharma,14,15,2016,Kings XI punjab
+10,Andre Russell,12,15,2016,Kolkata Knight Riders
+1,Bhuvneshwar Kumar,14,26,2017,Sunrises Hyderabad
+2,Jaydev Unadkat,12,24,2017,Rising Pune Supergiant
+3,Jasprit Bumrah,16,20,2017,Mumbai Indians
+4,Mitchell McClenaghan,14,19,2017,Mumbai Indians
+5,Imran Tahir,12,18,2017,Rising Pune Supergiant
+6,Chris Woakes,13,17,2017,Kolkata Knight Riders
+7,Rashid Khan,14,17,2017,Sunrises Hyderabad 
+8,Sandeep Sharma,13,17,2017,Sunrises Hyderabad
+9,Umesh Yadav,14,17,2017,Kolkata Knight Riders
+10,Siddarth Kaul,10,16,2017,Sunrises Hyderabad
+1,Andrew Tye,14,24,2018,Kings XI punjab
+2,Siddarth Kaul,17,21,2018,Sunrises Hyderabad
+3,Rashid Khan,17,21,2018,Sunrises Hyderabad
+4,Umesh Yadav,14,20,2018,Royal Challengers Banglore
+5,Hardik Pandya,13,18,2018,Mumbai Indians
+6,Trent Boult,14,18,,Delhi Daredevils
+7,Jasprit Bumrah,14,17,2018,Mumbai Indians
+8,Sunil Narine,16,17,2018,Kolkata Knight Riders
+9,Kuldeep Yadav,16,17,2018,Kolkata Knight Riders
+10,Shardul Thakur,13,16,2018,Chennai Super Kings
+1,Imran Tahir,17,26,2019,Chennai Super Kings
+2,Kagiso Rabada,12,25,2019,Delhi Capitals
+3,Deepak Chahar,17,22,2019,Chennai Super Kings
+4,Shreyas Gopal,14,20,2019,Rajastan Royals
+5,Mohammad Shami,14,19,2019,Kings XI punjab
+6,Khaleel Ahmed,9,19,2019,Sunrises Hyderabad
+7,Jasprit Bumrah,16,19,2019,Mumbai Indians
+8,Yuzvendra Chahal,14,18,2019,Royal Challengers Banglore
+9,Rashid Khan,15,17,2019,Sunrises Hyderabad
+10,Lasith Malinga,12,16,2019,Mumbai Indians
+1,Kagiso Rabada,17,30,2020,Delhi Capitals
+2,Jasprit Bumrah,15,27,2020,Mumbai Indians
+3,Trent Boult,15,25,2020,Mumbai Indians
+4,Anrich Nortje,16,22,2020,Delhi Capitals
+5,Yuzvendra Chahal,15,21,2020,Royal Challengers Banglore
+6,Mohammad Shami,14,20,2020,Kings XI punjab
+7,Jofra Archer,14,20,2020,Rajastan Royals
+8,Rashid khan,16,20,2020,Sunrises Hyderabad
+9,Varun Chakravarthy,13,17,2020,Kolkata Knights Riders
+10,T Natarajan,16,16,2020,Sunrises Hyderabad

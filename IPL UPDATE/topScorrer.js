@@ -113,6 +113,7 @@ d3.csv("top10Batsman.csv").then(function(data) {
             .attr("height", function(d) { return height - y(d.most_wickets); })
             .style('fill', 'steelblue')
             .on("mouseover", function(event, d) {
+              console.log(event);
               d3.select(this).style("fill", ' Orange');
               return tip.html(`${d.players_name} <br/>
                 Wickets: ${d.most_wickets}<br/>
@@ -139,6 +140,7 @@ d3.csv("top10Batsman.csv").then(function(data) {
 
 
         svg.selectAll('.title').on("click", function(d) {
+          console.log("CLICKING", this.id)
           d3.selectAll('line').remove()
                 
           d3.select(this)
