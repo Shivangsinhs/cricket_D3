@@ -79,11 +79,11 @@
         //var yearScale = d3.scaleLinear()
          //   .domain([2008,2020]).range([20,1150]);
 
-        var svg = d3.select('#titleWinner').append('svg').attr('width', 1200).attr('height', 250);
+        var svg = d3.select('#titleWinner').append('svg').attr('width', 1250).attr('height', 250);
 
         var button = document.createElement("button");
         button.id = "allBut"
-        button.textContent = "All years (2008-2020)"
+        button.textContent = "2008-2020"
 
         document.getElementById("titleWinner").append(button);
 
@@ -187,7 +187,7 @@
 
         var margin = {top: 50, right: 0, bottom: 75, left: 70},
         width = 600 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+        height = 380 - margin.top - margin.bottom;
             
         let year = '2020';
 
@@ -217,7 +217,7 @@
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", 
-                "translate(" + margin.left + "," + margin.top + ")");
+                "translate(" + (margin.left -20)  + "," + margin.top + ")");
             
         d3.select("#vis2").select("svg").append('text')
             .attr('class', 'visTitle')
@@ -444,10 +444,10 @@
   
                 topWickets.append("g")
                     .call(d3.axisLeft(y))
-                    .attr("class", "y_axis");
+                    .attr("class", "y_axisW");
 
                          // set title of y axis
-                d3.select(".y_axis")
+                d3.select(".y_axisW")
                     .append("text")
                     .text("Wickets taken")
                     .style("fill", "black")
@@ -463,7 +463,7 @@
                     players_name: v[0].players_name ,
                     most_wickets: d3.sum(v, d => d.most_wickets), 
                     matches: d3.sum(v, d => d.matches),
-                    team: v[0].team,
+                    Team: v[0].Team,
                     year: "2008 - 2020"}), 
                 d => d.players_name);
 
@@ -612,7 +612,7 @@
 
         // set size for plot
         const width = 450;
-        const height = 400;
+        const height = 380;
         const margin = 50;
 
         // scaling height
@@ -669,8 +669,8 @@
             .append("text")
             .text("Lost matches")
             .style("fill", "black")
-            .attr("x", (width + margin) / 2)
-            .attr("y", margin - 15)
+            .attr("x", (width) / 2)
+            .attr("y", margin - 10)
             .attr("class", "axis-title")
 
          // set Y axis
@@ -685,20 +685,20 @@
             .append("text")
             .text("Won matches")
             .style("fill", "black")
-            .attr("transform", `rotate(-90, 0, ${margin - 20}) translate(${-margin - 100 }, 0)`)
+            .attr("transform", `rotate(-90, 0, ${margin - 15}) translate(${-margin - 60 }, 0)`)
             .attr("class", "axis-title")
 
         const legend = svgSP
             .append("g")
             .attr("class", "legend")
-            .attr("transform", `translate(${width } , ${margin *2} )`);
+            .attr("transform", `translate(${width } , ${margin + 10} )`);
 
         legend
         .append("text")
             .text("Teams")
             .style("fill", "black")
             .attr("x", 0)
-            .attr("y", (- margin + 10))
+            .attr("y", (- margin + 25))
             .attr("class", "axis-title")
 
         const legendItems = legend.selectAll(".legend-item")
@@ -802,7 +802,7 @@
         // set center and bounds
         mapBox.setCenter(centroid);
         mapBox.fitBounds(bounds, {
-            padding: 10
+            padding: 25
         });// (bounds, {padding: 100});
         
         // check out extent
@@ -822,8 +822,8 @@
         const svgMap = d3.select(container)
             .append("svg")
             .attr("id", "svg5")
-            .attr("width", "700")
-            .attr("height", "400")
+            .attr("width", "600")
+            .attr("height", "340")
             .style("position", "absolute")
             .style("z-index", 2);
 

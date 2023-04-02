@@ -14,12 +14,11 @@ body {
 
 
 body {
-    background-color: #9bc2d5;
+    background-color: #d9e6ec;
   }
 
   
 header {
-  grid-area: head;
   position: fixed;
   top: 0;
   width: 100%;
@@ -53,10 +52,10 @@ header {
   'intro intro intro intro'
   'vis12 vis12 vis12 vis12'
   'vis2 vis2 vis3 vis3'
-  'vis4 vis4 vis5 vis5'
+  'line line line line'
   'vis4 vis4 vis5 vis5'
   'discl discl discl discl';
-  grid-gap: 10px;
+  grid-gap: 5px;
   
 }
 
@@ -80,7 +79,7 @@ h1 {
 
 
  #titleWinner {
-  background-color: rgb(120, 155, 116);
+  background-color: d9e6ec;
   grid-area: vis12;
   display: flex;
   flex-direction: column;
@@ -95,33 +94,73 @@ h1 {
 }
 
  #vis2 {
-  background-color: rgb(21, 255, 0);
-  grid-area: vis2;
+  background-color: #d9e6ec;
+  /*grid-area: vis2;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
  }
 
  #vis3 {
-  background-color: rgb(104, 23, 106);
+  background-color: #d9e6ec;
   grid-area: vis3;
+  border-left: 1px solid rgb(160, 160, 160);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding-left: 5px;
+  padding-right: 20px;
+ }
+
+ #lineH {
+  grid-area: line;
+  border-top: 1px solid rgb(160, 160, 160);
+  width: 90%;
+  margin: 0 auto;
  }
 
  #vis4 {
-  background-color: rgb(67, 121, 121);
+  background-color: #d9e6ec;
   grid-area: vis4;
-  padding-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+ }
+
+ #wrap5 {
+  grid-area: vis5;
+  border-left: 1px solid rgb(160, 160, 160);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
  }
 
  #vis5 {
-  background-color: rgb(163, 197, 69);
-  grid-area: vis5;
+  background-color: #d9e6ec;
+  padding-top: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .vis5Text {
+  width: 90px;
   padding-left: 5px;
  }
 
  #mapB {
-  background-color: rgb(163, 197, 69);
+  background-color: #d9e6ec;
   z-index: 0;
-  width: 700px;
-  height: 400px;
-  
+  width: 600px;
+  height: 340px;
  }
 
  #discl {
@@ -146,15 +185,21 @@ footer {
     margin-top: 20px;
   }
 
+  .visDesc {
+    font-size: 12px;
+    width: 90px;
+  }
 
   .tooltip {
-    background-color: rgb(216, 214, 214);
     display: flex;
     width: auto;
     height: auto;
     font-size: 15px;
     padding: 5px;
-    border: 1px solid black;
+    color: black; 
+    background-color: #eee;
+    box-shadow: 0px 2px 10px -2px #aaa;
+    border: 2px solid #444;
     border-radius: 7px;
     opacity: 0.9;
 }
@@ -165,11 +210,12 @@ footer {
   height: auto;
   color: black; 
   background-color: #eee;
-  text-align: center;
   box-shadow: 0px 2px 10px -2px #aaa;
-  padding: 20px;
+  font-size: 15px;
+  padding: 5px;
   border: 2px solid #444;
-  /*transition: all 160ms cubic-bezier(0.455, 0.03, 0.515, 0.955);*/
+  border-radius: 7px;
+  opacity: 0.9;
 }
 
   .circleM {
