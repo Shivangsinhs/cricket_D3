@@ -164,7 +164,7 @@ h1 {
  }
 
  #discl {
-  background-color: rgb(84, 129, 129);
+  background-color: #d9e6ec;
   grid-area: discl;
   display: flex;
   justify-content: center;

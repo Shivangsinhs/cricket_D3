@@ -68,9 +68,9 @@
     const dataPahtWick = "../data/top10Wickets.csv";
     const batsData = await d3.csv(dataPahtBats);
     const wickData = await d3.csv(dataPahtWick);
-    console.log("client", wickData);
 
-//Defining the function to initilize the logos of title winners
+    //Defining the function to initilize the logos of title winners
+    // code for creating the logos (filter) was inspired by https://www.dashingd3js.com/d3-tutorial/using-the-svg-coordinate-space-with-d3-js (last accessed 03.04.2023)
     function initaliseLogos(data) {
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 1200 - margin.left - margin.right,
@@ -94,7 +94,7 @@
             .style('font-weight', 'bold')
             .text('IPL Title Winners');
 
-	//Defining the scale for the years.
+	    //Defining the scale for the years.
         var yearScale = d3.scaleLinear()
             .domain([2008,2020]).range([50,width]);
 		// Append the  group element for each year in the data
@@ -111,6 +111,7 @@
                     .duration(300)
                     .attr("transform", (d)=> `translate(${yearScale(Number(d.year))}, 60) scale(1.2)`);
             })
+            // code for creating the tooltip was inspired by https://d3-graph-gallery.com/graph/interactivity_tooltip.html (last accessed 03.04.2023)
             .on("mouseleave", function(d,i) {
                 d3.select(this)
                     .transition()
@@ -217,7 +218,7 @@
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", 
-                "translate(" + (margin.left -20)  + "," + margin.top + ")");
+                "translate(" + (margin.left -5)  + "," + margin.top + ")");
             
         d3.select("#vis2").select("svg").append('text')
             .attr('class', 'visTitle')
@@ -229,7 +230,7 @@
             .append("div")
             .attr("class", "tip")
             .style("position", "absolute")
-            //.style("visibility", "hidden");
+            .style("visibility", "hidden");
         
         var topWickets = d3.select("#vis3").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -250,7 +251,7 @@
         let tooltipX = null;
         let tooltipY = null;
 
-
+        // code for creating the bar chart was inspired by https://d3-graph-gallery.com/barplot.html (last accessed 03.04.2023)
         function init(data, type= 'most_runs') {
 
             x.domain(data.map(function(d) { return d.players_name; }));
@@ -264,11 +265,11 @@
                 .attr("class", "bar")
                 .attr("x", function(d) { return x(d.players_name); })
                 .attr("width", function() {
-                    console.log(x.bandwidth())
                     return x.bandwidth()})
                 .attr("y", function(d) { return y(d[type]); })
                 .attr("height", function(d) { return height - y(d[type]); })
                 .style('fill', 'steelblue')
+                // code for creating the tooltip was inspired by https://d3-graph-gallery.com/graph/interactivity_tooltip.html (last accessed 03.04.2023)
                 .on("mouseover", function(event, d) {
 
                     if (!tooltipDisplayed) {
@@ -276,13 +277,14 @@
                         tooltipX = event.pageX + 20;
                         tooltipY = event.pageY;
 
-                        //console.log(event)
                         
                         d3.select(this)
                             .style("fill", 'Orange');
                             return tip.html(`${d.players_name} <br/>
-                                Score: ${d.most_runs} <br/>
-                                Team Name: ${d.team}
+                                Matches: ${d.matches} <br/>
+                                Runs: ${d.most_runs} <br/>
+                                Runs per Match: ${(d.most_runs / d.matches).toFixed(2)} <br/>
+                                Team: ${d.team}
                             `)
                             .style("visibility", "visible")
                             .style("top", tooltipY + 'px' )
@@ -294,7 +296,6 @@
                     if (tooltipDisplayed) {
                         tooltipDisplayed = false;
 
-                        //console.log(event)
                         
                         d3.select(this)
                             .style("fill", 'steelblue');
@@ -333,8 +334,8 @@
                 .append("text")
                 .text("Runs scored")
                 .style("fill", "black")
-                .attr("transform", `rotate(-90, 0, ${50}) translate(${- 50}, 0)`)
-                .attr("class", "y_axisSc")
+                .attr("transform", `rotate(-90, 0, ${50}) translate(${- 40}, 0)`)
+                .attr("class", "axis-title")
         }
 
         
@@ -351,14 +352,11 @@
 
             let rollArray = Array.from(rolledData);
             rollArray = rollArray.sort((a, b) => d3.descending(a[1].most_runs, b[1].most_runs))
-            //console.log("bats", rollArray)
             let overallBest = [];
             for (let x = 0; x < 10; x++) {
                 overallBest.push(rollArray[x][1])
             }
-            //console.log(overallBest);
             //overallBest = overallBest.sort((a, b) => d3.descending(a.most_runs, b.most_runs)) 
-            //console.log("second", overallBest)
             return overallBest;
         }
 
@@ -370,6 +368,7 @@
         let tooltipXW = null;
         let tooltipYW = null;
 
+        // code for creating the bar chart was inspired by https://d3-graph-gallery.com/barplot.html (last accessed 03.04.2023)
         function initWicket(data) {
             x.domain(data.map(function(d) { return d.players_name; }));
             y.domain([0, d3.max(data, function(d) { return d.most_wickets; })]);
@@ -385,12 +384,11 @@
               .attr("y", function(d) { return y(d.most_wickets); })
               .attr("height", function(d) { return height - y(d.most_wickets); })
               .style('fill', 'steelblue')
+              // code for creating the tooltip was inspired by https://d3-graph-gallery.com/graph/interactivity_tooltip.html (last accessed 03.04.2023)
               .on("mouseover", function(event, d) {
 
                 if (!tooltipDisplayedW) {
                     
-                    //console.log(event)
-
                     tooltipDisplayedW = true;
                     tooltipXW = event.pageX + 20;
                     tooltipYW = event.pageY;
@@ -398,8 +396,10 @@
                     d3.select(this)
                         .style("fill", 'Purple');
                         return tip.html(`${d.players_name} <br/>
-                            Wickets: ${d.most_wickets}<br/>
-                            Team Name: ${d.Team}
+                            Matches: ${d.matches} <br/>
+                            Wickets: ${d.most_wickets} <br/>
+                            Wickets per Match: ${(d.most_wickets / d.matches).toFixed(2)} <br/>
+                            Team: ${d.Team}
                         `)
                         .style("visibility", "visible")
                         .style("top", tooltipYW + 'px' )
@@ -412,7 +412,6 @@
                     
                     tooltipDisplayedW = false;
 
-                    //console.log(event)
                     d3.select(this)
                     .style("fill", 'steelblue');
                     return tip.style("visibility", "hidden");
@@ -469,14 +468,11 @@
 
             let rollArray = Array.from(rolledData);
             rollArray = rollArray.sort((a, b) => d3.descending(a[1].most_wickets, b[1].most_wickets))
-            console.log("bats", rollArray)
             let overallBest = [];
             for (let x = 0; x < 10; x++) {
                 overallBest.push(rollArray[x][1])
             }
-            console.log(overallBest);
             overallBest = overallBest.sort((a, b) => d3.descending(a.most_wickets, b.most_wickets)) 
-            console.log("second", overallBest)
             return overallBest;
         }
         
@@ -517,8 +513,6 @@
                 init(bats.filter((e)=> e.year == this.id));
                 initWicket(wicks.filter((e)=> e.year == this.id));
                 
-                console.log(this.id)
-                console.log(typeof this.id)
                 filterTest(this.id)
             })
         
@@ -529,8 +523,6 @@
 
     // return filtered cleaned data
     function filterTest(filter) {
-        console.log(filter)
-        console.log(typeof filter)
         if (filter != 0) {
             var newData = myData.filter(function (d) { return d.year == filter});
             newData.sort((a, b) => d3.descending(a.Date, b.Date))
@@ -542,12 +534,12 @@
         } else {
             scoreTable(myData);
             cityMap(myData);
-            //console.log(myData)
         }
     }
 
 
     // on change of filter change the Score Table that is displayed
+    // code for creating the scatterplot was inspired by https://d3-graph-gallery.com/graph/scatter_tooltip.html (last accessed 03.04.2023)
     function scoreTable(data) {
 
         // create array of rolled won mathces per teams
@@ -568,11 +560,8 @@
         let winLosArray = [];
 
         for (let parts of winArray) {
-            //console.log(parts);
             for (let elements of losArray) {
-                //console.log(elements)
                 if (parts[0] == elements[0]) {
-                    //console.log("its a mathch");
                     let winLos = {
                         team: parts[0],
                         winC: parts[1],
@@ -590,12 +579,10 @@
         let winExtent = d3.extent(winLosArray, function(d) {
             return parseFloat(d.winC)
         });
-        //console.log("win", winExtent)
 
         let losExtent = d3.extent(winLosArray, function(d) {
             return parseFloat(d.losC)
         });
-        //console.log("los", losExtent)
 
         var bigExtent = null;
         if (winExtent[1] >= losExtent[1]) {
@@ -625,7 +612,6 @@
             .range([margin, width - margin])
             .domain([0, bigExtent]);
         
-        //console.log(x_scale(winLosArray[1].matcC))
 
         // scaling radius
         let r_scale = d3.scaleLinear()
@@ -733,16 +719,14 @@
             .enter()
             .append("circle")
             .attr("r", d => {
-                //console.log(r_scale(d.matcC))
                 return r_scale(d.matcC)})
             .attr("cx", d => {
-                //console.log(x_scale(d.losC))
                 return x_scale(d.losC)})
             .attr("cy", d => y_scale(d.winC))
             .attr("fill", (d, i) => h_scale(i) )
             //.attr("class", "circleS")
+            // code for creating the tooltip was inspired by https://d3-graph-gallery.com/graph/interactivity_tooltip.html (last accessed 03.04.2023)
             .on("mouseenter", function(event, d) {
-                //console.log(event);
                 if (!tooltipDisplayed) {
                     tooltipX = event.pageX + 20;
                     tooltipY = event.pageY;
@@ -759,7 +743,6 @@
                 }
             })
             .on("mouseout", function(event, d) {
-                //console.log("OUT");
                 if (tooltipDisplayed) {
                     d3.selectAll(".tooltip")
                     .remove();
@@ -771,6 +754,7 @@
 
     
     // on change of filter change the Matches Played Map that is displayed
+    // code for creating the map (incl. scatterplot) was inspired by https://franksh.com/posts/d3-mapboxgl/ (last accessed 03.04.2023)
     function cityMap(data) {
 
         // rolle data to get number of matches, including geo data
@@ -779,14 +763,11 @@
             d => d.City);
 
         let rollArray = Array.from(rolledData);
-        //console.log(rollArray);
         
         // calculate center of the map based on current filter
         const centroid = rollArray.reduce((acc, point) => {
-            //console.log(point[1].long, point[1].lat)
             return[acc[0] + point[1].long, acc[1] + point[1].lat]
         }, [0, 0]).map(coord => coord / rollArray.length)
-        //console.log(centroid)
 
         // calculate bounds of the map based on current filter 
         const bounds = rollArray.reduce((acc, point) => {
@@ -797,7 +778,6 @@
                 Math.max(acc[3], point[1].lat),
             ]
         }, [Infinity, Infinity, -Infinity, -Infinity]);
-        //console.log(bounds)
          
         // set center and bounds
         mapBox.setCenter(centroid);
@@ -842,8 +822,8 @@
                 return(r_scale(d[1].count))
             })
             .attr("class", "circleM")
+            // code for creating the tooltip was inspired by https://d3-graph-gallery.com/graph/interactivity_tooltip.html (last accessed 03.04.2023)
             .on("mouseover", function(event, d) {
-                //console.log(event);
                 if (!tooltipDisplayed) {
                     tooltipX = event.pageX +  20;
                     tooltipY = event.pageY;
@@ -851,7 +831,7 @@
                     d3.select("body")
                     .append("div")
                     .attr("class", "tooltip")
-                    .html(d[0] + " " + d[1].count + " matches played")
+                    .html( "City: " + d[0] + "<br>Matches played: " + d[1].count)
                     .style("position", "absolute")
                     .style("left", (tooltipX) + "px")
                     .style("top", (tooltipY) + "px")
@@ -860,7 +840,6 @@
                 }
             })
             .on("mouseout", function(event, d) {
-                //console.log("OUT");
                 if (tooltipDisplayed) {
                     d3.selectAll(".tooltip")
                     .remove();
