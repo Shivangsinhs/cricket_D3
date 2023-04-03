@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	     <!-- Importing required libraries -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+	
+	   <!-- Importing custom JavaScript and CSS files  -->
+        <script src = "client.js"></script>
+        <script src = "titleWinner.js"></script>
+        <link rel="stylesheet" href="stylesheet.css" />
+	<!-- Title of the webpage -->
+        <title>P2 CS5044</title>
+    </head>
+
+    <body> 
+	    <!-- Using Header section -->
+        <header>
+                <div class="tabHead"><a class="title">CS5044 - P2:</a></div> <!-- Two diffrent tabs in the header with a title -->
+                <div class="tab"> <a class="titleT"> Indian Premier League Analytics</a></div>
+        </header>
+
+        <main id="wrapper">
+            <div id="intro">
+                <p> 	<!-- Introduction  -->
+                    <strong>Indian Premier League performance from 2008 to 2020</strong>
+		
+                    <br><br>The Indian Premier League (IPL) is one of the biggest and professional Twenty20 cricket leagues in India, which has gained immense popularity across the globe due to its high quality of cricket, professional teams, and innovative format. 
+                    The IPL attracts the best cricket talent from around the world, making the upcoming talent showcase their skills and compete with some of the biggest names in the game. With millions of viewers tuning in to watch the games every year, the IPL has become a cultural phenomenon in India and the world by provding blended sports and entertainment. <br>
+                    <br>This webpage aims to provide users with a comprehensive understanding of the IPL through data visualizations and interactive exploration. By presenting data in an engaging and easily visualized  format, the users can gain insights into team and player performances. The webpage provides an opportunity for cricket fans to gain insights of the sport. Additionally, it tries to be accessible to those who are new to the sport, providing a resource for anyone looking to explore the IPL.<br>
+                    <br><br><strong>How did the various Indian Premier League teams perform in the years 2008 to 2020?</strong>
+                    <br><br>The following visualisations try to answer this question.
+                    <ul>
+			    <!-- List of visualizations available on the webpage -->
+                        <li><strong>IPL Title Winners:</strong> The winner of the league in the according season.</li>
+                        <li><strong>Best Batsmen:</strong> The Orange Cap is awarded to the player who scores the most runs in the league.</li>
+                        <li><strong>Best Bowlers:</strong> The Purple Cap, is awarded to the player who takes the most wickets in the tournament.</li>
+                        <li><strong>Score Analysis:</strong> The teams match performance is compared.</li>
+                        <li><strong>Locations of played Matches:</strong> A display of cities and countries where the matches where held.</li>
+                    </ul>
+                </p>
+                
+            </div>
+            
+
+            <div id="titleWinner">
+            </div>
+
+
+            <div id="vis2">
+                <p class="visDesc">Batsmen are players who try to hit the ball to score runs (points) in a match.</p>
+            </div>
+
+            <div id="vis3">
+                <p class="visDesc">Bowlers are players that try to get wickets (getting the batsmen out) by delivering the ball past them.</p>
+            </div>
+            
+            <div id="lineH"></div>
+            
+            <div id="vis4">
+                <p class="visDesc">The teams' match performance, compared to each other.</p>
+            </div>
+
+            <div id="wrap5">
+                <div class="vis5Text">
+                    <p class="visDesc">Geography of the IPL. Cities with the number of played matches.</p>
+                </div>
+                <div id="vis5">
+                    <p class="visTitle">Locations of played Matches</p>
+                    <div id="mapB">
+                    </div>
+                </div>
+            </div>
+
+            <div id="discl">
+                <p></p>
+                <p>
+                    The following <strong>sources</strong> helped in creating the webpage:
+                </p>
+                <ul>
+            <!-- List of visualizations available on the webpage -->
+                    <li><strong>Data:</strong> <a href="https://www.kaggle.com/datasets/patrickb1912/ipl-complete-dataset-20082020">kaggle</a></li>
+                    <li><strong>Bar charts:</strong> <a href="https://d3-graph-gallery.com/barplot.html">D3.js Graph Gallery</a></li>
+                    <li><strong>Scatter plot:</strong> <a href="https://d3-graph-gallery.com/graph/scatter_tooltip.html">D3.js Graph Gallery</a></li>
+                    <li><strong>Maps:</strong> <a href="https://franksh.com/posts/d3-mapboxgl/">Plotting on maps with d3 and Mapbox</a></li>
+                    <li><strong>Tooltips:</strong> <a href="https://d3-graph-gallery.com/graph/interactivity_tooltip.html">D3.js Graph Gallery</a></li>
+                    <li><strong>Logos:</strong> <a href="https://www.dashingd3js.com/d3-tutorial/using-the-svg-coordinate-space-with-d3-js">Using the SVG Coordinate Space With D3.js</a></li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <a class="legend-text">Created by: 180013586 & 220018772 as an assignment for CS5044 in semester 2 of the academic year 2022/23. </a>
+        </footer>
+
+    </body>
+
+</html>

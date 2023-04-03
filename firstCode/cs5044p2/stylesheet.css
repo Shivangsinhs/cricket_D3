@@ -1,0 +1,308 @@
+/* Styling for page sections */
+html,
+body {
+  margin: auto;
+}
+
+* {
+  font-family: helvetica, sans-serif;
+  box-sizing: border-box;
+  color: rgb(48, 47, 47);
+}
+
+/* SD302: Styling for headers */
+
+
+body {
+    background-color: #d9e6ec;
+  }
+
+  
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #7a98a7;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+}
+
+.tabHead {
+  margin-right: auto;
+  margin-left: 10%;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  margin-right: 60%;
+}
+
+#wrapper {
+  width: 95%;
+  margin-bottom: 10px;
+  margin: auto;
+  padding-top: 80px;
+  display: grid;
+  grid-template-areas: 
+  'intro intro intro intro'
+  'vis12 vis12 vis12 vis12'
+  'vis2 vis2 vis3 vis3'
+  'line line line line'
+  'vis4 vis4 vis5 vis5'
+  'discl discl discl discl';
+  grid-gap: 5px;
+}
+
+h1 {
+  /*text-align: center;*/
+  font-size: 25px;
+  font-weight: none;
+  color: rgb(48, 47, 47);
+  right: 0;
+}
+
+
+#intro {
+  background-color: #d9e6ec;
+  grid-area: intro;
+  width: 98%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ }
+
+
+ #titleWinner {
+  background-color: #d9e6ec;
+  grid-area: vis12;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ #titleWinner svg {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+ #vis2 {
+  background-color: #d9e6ec;
+  /*grid-area: vis2;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+ }
+
+ #vis3 {
+  background-color: #d9e6ec;
+  grid-area: vis3;
+  border-left: 1px solid rgb(160, 160, 160);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding-left: 5px;
+  padding-right: 20px;
+ }
+
+ #lineH {
+  grid-area: line;
+  border-top: 1px solid rgb(160, 160, 160);
+  width: 90%;
+  margin: 0 auto;
+ }
+
+ #vis4 {
+  background-color: #d9e6ec;
+  grid-area: vis4;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+ }
+
+ #wrap5 {
+  grid-area: vis5;
+  border-left: 1px solid rgb(160, 160, 160);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+ }
+
+ #vis5 {
+  background-color: #d9e6ec;
+  padding-top: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .vis5Text {
+  width: 90px;
+  padding-left: 5px;
+ }
+
+ #mapB {
+  background-color: #d9e6ec;
+  z-index: 0;
+  width: 600px;
+  height: 340px;
+ }
+
+ #discl {
+  background-color: #d9e6ec;
+  grid-area: discl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ }
+
+footer {
+    /*position: fixed;*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #7a98a7;
+    text-align: center;
+    color: #050606;
+    padding: 10px;
+    font-weight: none;
+    margin-top: 20px;
+  }
+
+  .visDesc {
+    font-size: 12px;
+    width: 90px;
+  }
+
+  .tooltip {
+    display: flex;
+    width: auto;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+    color: black; 
+    background-color: #eee;
+    box-shadow: 0px 2px 10px -2px #aaa;
+    border: 2px solid #444;
+    border-radius: 7px;
+    opacity: 0.9;
+}
+
+.tip {
+  display: flex;
+  width: auto;
+  height: auto;
+  color: black; 
+  background-color: #eee;
+  box-shadow: 0px 2px 10px -2px #aaa;
+  font-size: 15px;
+  padding: 5px;
+  border: 2px solid #444;
+  border-radius: 7px;
+  opacity: 0.9;
+}
+
+  .circleM {
+  fill: rgb(177, 82, 82);
+  stroke: black;
+  stroke-width: 0.5px;
+  opacity: 0.8;
+}
+
+.circleS {
+  fill: rgb(183, 41, 41);
+  stroke: black;
+  stroke-width: 0.5px;
+  opacity: 0.8;
+}
+
+.visTitle {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.axis-title {
+  font-size: 15px;
+}
+
+.legend-text {
+  font-size: 12px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.titleT {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* SD302: TAB STYLING 
+.tab-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #7a98a7;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+    z-index: 3;
+  }
+  
+  .tabHead {
+    margin-right: auto;
+    margin-left: 10%;
+  }
+
+.tab {
+    display: flex;
+    justify-content: center;
+  }
+  
+  */
+
+/*
+.tab button {
+    background-color: inherit;
+    color: #f4f1e9;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 30px;
+    transition: 0.3s;
+  }
+  
+.tab button:hover {
+    background-color: #527b90;
+    color: #f4f1e9;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+  
+.tab button.active {
+    background-color: #49bbf5;
+    color: #f4f1e9;
+    font-weight: bold;
+  }
+  */
