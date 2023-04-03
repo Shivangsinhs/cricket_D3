@@ -1,15 +1,15 @@
-(async () => {
+(async () => { // Defining AN async function to perfom task assigned
 
-    // token for mapbox API
+    // token for mapbox API to access the map using the current datapath to CSV file
     let token = "pk.eyJ1IjoiZmVzb2oyMiIsImEiOiJjbGZwN203bXcwbDVoM3NwaHU0b2U1Ym1lIn0.Bkw73NEebSZar5w2HtQuAw";
    
     // current datapath to CSV file
     const datapath = "../data/IPL Matches 2008-2020_win_loss.csv"
 
-    // cleaned data (date)
+    // use cleaned data (date) from Csv file to D3 function 
     const myData = await d3.csv(datapath, rowConverter);
     
-    // convert dataObjects to necessary format, change date format
+    // defining function to convert dataObjects to necessary format, change date format
     function rowConverter(d) {
 
         let dateString = d.Date
@@ -59,7 +59,7 @@
         })
     
 
-    
+    // Recalling the csv file that contains wins , top 10 batsmen and bowlers
     const dataPathWin = "../data/ipl_data.csv";
 
     const winData = await d3.csv(dataPathWin);
@@ -70,7 +70,7 @@
     const wickData = await d3.csv(dataPahtWick);
     console.log("client", wickData);
 
-
+//Defining the function to initilize the logos of title winners
     function initaliseLogos(data) {
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 1200 - margin.left - margin.right,
@@ -78,26 +78,26 @@
 
         //var yearScale = d3.scaleLinear()
          //   .domain([2008,2020]).range([20,1150]);
-
+         //selecting margin, height and width for Scalable Vector Graphic
         var svg = d3.select('#titleWinner').append('svg').attr('width', 1250).attr('height', 250);
-
+	 // Createing a button to display data for all years
         var button = document.createElement("button");
         button.id = "allBut"
         button.textContent = "2008-2020"
 
         document.getElementById("titleWinner").append(button);
 
-        
+       // Selecting the SVG element and append a title for the char
         svg.append('text')
             .attr('class', 'title')
             .attr('transform','translate(550,30)')
             .style('font-weight', 'bold')
             .text('IPL Title Winners');
 
-
+	//Defining the scale for the years.
         var yearScale = d3.scaleLinear()
             .domain([2008,2020]).range([50,width]);
-
+		// Append the  group element for each year in the data
             let g = svg.append("g").selectAll('g')
             .data(data)
             .enter()
