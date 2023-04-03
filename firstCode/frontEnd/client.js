@@ -223,7 +223,7 @@
             .attr('class', 'visTitle')
             .attr('transform', `translate(${(width + margin.left + margin.right) /2},${30})`)
             .style('font-weight', 'bold')
-            .text('Best batsmen');
+            .text('Best Batsmen');
 
         var tip = d3.select("body")
             .append("div")
@@ -242,7 +242,7 @@
             .attr('class', 'visTitle')
             .attr('transform', `translate(${(width + margin.left + margin.right) /2},${30})`)
             .style('font-weight', 'bold')
-            .text('Best bowlers');
+            .text('Best Bowlers');
         
 
         // variables for tooltip display - not necessary, but it was buggy before....
@@ -334,7 +334,7 @@
                 .text("Runs scored")
                 .style("fill", "black")
                 .attr("transform", `rotate(-90, 0, ${50}) translate(${- 50}, 0)`)
-                .attr("class", "axis-title")
+                .attr("class", "y_axisSc")
         }
 
         
@@ -655,7 +655,7 @@
             .attr('class', 'visTitle')
             .attr('transform', `translate(${(width /2)},${30})`)
             .style('font-weight', 'bold')
-            .text('Score Table');
+            .text('Score Analysis');
 
         // set X axis
         svgSP
@@ -818,7 +818,6 @@
         // remove svg, to not load multiple ones
         d3.select('#svg5').remove()
 
-        // __________________________________________________________size as variable (same as container) stylesheet______________
         const svgMap = d3.select(container)
             .append("svg")
             .attr("id", "svg5")

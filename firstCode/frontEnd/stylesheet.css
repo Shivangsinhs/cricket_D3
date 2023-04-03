@@ -56,7 +56,6 @@ header {
   'vis4 vis4 vis5 vis5'
   'discl discl discl discl';
   grid-gap: 5px;
-  
 }
 
 h1 {
@@ -69,8 +68,9 @@ h1 {
 
 
 #intro {
-  background-color: rgb(84, 129, 129);
+  background-color: #d9e6ec;
   grid-area: intro;
+  width: 98%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,7 @@ h1 {
 
 
  #titleWinner {
-  background-color: d9e6ec;
+  background-color: #d9e6ec;
   grid-area: vis12;
   display: flex;
   flex-direction: column;
@@ -229,7 +229,7 @@ footer {
   fill: rgb(183, 41, 41);
   stroke: black;
   stroke-width: 0.5px;
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .visTitle {
